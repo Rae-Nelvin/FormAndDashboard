@@ -51,7 +51,7 @@
                         </button>
                         <div class="py-6 px-6 lg:px-8">
                             <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Package Soal</h3>
-                            <form class="space-y-6" action="{{ route('/package/section/editSection') }}" method="POST" >
+                            <form class="space-y-6" action="{{ route('editSection') }}" method="POST" >
                                 @csrf
                                 <div>
                                     <input type="hidden" name="groupQuestionID" value="{{ $groupID }}" />
@@ -107,7 +107,7 @@
                 </button>
                 <div class="py-6 px-6 lg:px-8">
                     <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">New Package Soal</h3>
-                    <form class="space-y-6" action="{{ route('/newSection') }}" method="POST">
+                    <form class="space-y-6" action="{{ route('newSection') }}" method="POST">
                         @csrf
                         <div>
                             <input type="hidden" name="groupQuestionID" value="{{ $groupID }}" />
