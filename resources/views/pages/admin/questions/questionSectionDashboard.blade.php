@@ -31,7 +31,7 @@
         <div class="flex flex-col w-full space-y-10">
             @foreach ($data as $datas)
                 <div class="flex flex-row justify-between items-center bg-white w-full py-5 px-12 rounded-lg cursor-pointer hover:bg-teal-600 hover:text-white transition-all ease-in-out duration-300">
-                    <a href="/package/section/subsection/renderSubSection/{{ $datas->id }}">
+                    <a href="/package/section/subsection/{{ $datas->id }}">
                         <h1 class="font-bold text-2xl uppercase">{{ $loop->iteration }}. {{ $datas->name }}</h1>
                     </a>
                     <div class="flex flex-row space-x-4">

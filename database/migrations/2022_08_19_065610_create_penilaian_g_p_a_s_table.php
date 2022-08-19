@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('answer_packages', function (Blueprint $table) {
+        Schema::create('penilaian_g_p_a_s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('questionGroupID');
-            $table->unsignedBigInteger('questionSectionID');
-            $table->unsignedBigInteger('questionSubSectionID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
+            $table->double('GPA')->default(0);
+            $table->string('status')->default('Sangat Buruk');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_packages');
+        Schema::dropIfExists('penilaian_g_p_a_s');
     }
 };

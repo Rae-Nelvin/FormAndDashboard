@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Answer extends Model
+class Mengajar extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -18,28 +18,27 @@ class Answer extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'answerPackageID',
-        'questionID',
-        'answer',
+        'userID',
+        'mengajarListID',
     ];
 
     /**
-     * Get the answerPackage that owns the Answer
+     * Get the user that owns the Mengajar
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function answerPackage(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(AnswerPackage::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
-     * Get the question associated with the Answer
+     * Get the mengajarListID associated with the Mengajar
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function question(): HasOne
+    public function mengajarListID(): HasOne
     {
-        return $this->hasOne(Question::class);
+        return $this->hasOne(MengajarList::class);
     }
 }

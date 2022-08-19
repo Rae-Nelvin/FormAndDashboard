@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('answer_packages', function (Blueprint $table) {
+        Schema::create('penilaian_g_p_s', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('questionGroupID');
-            $table->unsignedBigInteger('questionSectionID');
-            $table->unsignedBigInteger('questionSubSectionID');
+            $table->unsignedBigInteger('penilaianGPAID');
+            $table->foreign('penilaianGPAID')->references('id')->on('penilaian_g_p_a_s')->onDelete('cascade');
+            $table->double('GPS')->default(0);
+            $table->string('periode')->default('2021/2022');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_packages');
+        Schema::dropIfExists('penilaian_g_p_s');
     }
 };

@@ -18,10 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('jenjang');
-            $table->unsignedBigInteger('roleID');
+            $table->string('NIY');
+            $table->unsignedBigInteger('pangkatID')->nullable();
+            $table->string('satuanPendidikan');
+            $table->unsignedBigInteger('roleID')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

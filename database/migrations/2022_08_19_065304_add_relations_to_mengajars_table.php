@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('roleID')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('SET NULL');
+        Schema::table('mengajars', function (Blueprint $table) {
+            $table->foreign('userID')->references('id')->on('users');
+            $table->foreign('mengajarListID')->references('id')->on('mengajar_lists');
         });
     }
 
@@ -25,8 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_roleID_foreign');
+        Schema::table('mengajars', function (Blueprint $table) {
+            $table->dropForeign('mengajars_userID_foreign');
+            $table->dropForeign('mengajars_mengajarListID_foreign');
         });
     }
 };

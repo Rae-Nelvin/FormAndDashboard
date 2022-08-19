@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            questionGroupSeeder::class,
+            QuestionGroupSeeder::class,
+            EDPQuestionSeeder::class,
+            PKBQuestionSeeder::class,
         ]);
     }
 }

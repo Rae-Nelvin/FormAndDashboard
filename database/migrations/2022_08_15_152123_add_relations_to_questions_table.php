@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->foreign('groupID')->references('id')->on('question_groups')->onUpdate('cascade');
-            $table->foreign('sectionID')->references('id')->on('question_sections')->onUpdate('cascade');
-            $table->foreign('subsectionID')->references('id')->on('question_sub_sections')->onUpdate('cascade');
+            $table->foreign('groupID')->references('id')->on('question_groups')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('sectionID')->references('id')->on('question_sections')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('subsectionID')->references('id')->on('question_sub_sections')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

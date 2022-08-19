@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('question_sub_sections', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sectionQuestionID');
-            $table->foreign('sectionQuestionID')->references('id')->on('question_sections')->onUpdate('cascade');
+            $table->foreign('sectionQuestionID')->references('id')->on('question_sections')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
         });
     }

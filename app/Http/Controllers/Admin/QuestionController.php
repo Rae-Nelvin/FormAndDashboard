@@ -172,7 +172,20 @@ class QuestionController extends Controller
             ->where('question_sub_sections.id', '=', $id)
             ->select('questions.*')
             ->get();
-        return view('pages.admin.questions.questionDashboard', ['subSection' => $subSection, 'question' => $question, 'subsectionID' => $id]);
+        $fQuestion = DB::table('questions')
+            ->join('question_sub_sections', 'questions.subsectionID', '=', 'question_sub_sections.id')
+            ->where('question_sub_sections.id', '=', $id)
+            ->select('questions.*')
+            ->first();
+        $underLimit = DB::table('questions')
+            ->where('questions.sectionID', '=', $fQuestion->sectionID)
+            ->first();
+        $upperLimit = DB::table('questions')
+            ->where('questions.sectionID', '=', $fQuestion->sectionID)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        return view('pages.admin.questions.questionDashboard', ['subSection' => $subSection, 'question' => $question, 'subsectionID' => $id, 'underLimit' => $underLimit, 'upperLimit' => $upperLimit]);
     }
 
     /**

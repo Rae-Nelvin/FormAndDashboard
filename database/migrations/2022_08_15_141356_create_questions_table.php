@@ -20,8 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('subsectionID');
             $table->string('question');
             $table->string('questionType');
-            $table->unsignedInteger('minimumScore')->default(0);
-            $table->unsignedInteger('maximumScore')->default(0);
+            $table->unsignedInteger('minimumScore')->default(0)->nullable();
+            $table->unsignedInteger('maximumScore')->default(0)->nullable();
             $table->timestamps();
         });
     }

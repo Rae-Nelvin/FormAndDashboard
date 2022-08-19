@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('answerPackageID');
             $table->unsignedBigInteger('questionID');
             $table->string('answer');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

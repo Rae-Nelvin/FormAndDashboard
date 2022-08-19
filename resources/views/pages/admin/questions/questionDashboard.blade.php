@@ -32,7 +32,7 @@
             <div class="flex flex-col flex-nowrap justify-between space-y-6">
                 <div class="bg-white py-5 px-5 rounded-lg flex flex-row flex-nowrap justify-between space-x-10">
                     @foreach ($subSection as $subSections)
-                    <h1 class="font-bold text-xl">{{ $subSections->id }}. {{ $subSections->name }}</h1>
+                    <h1 class="font-bold text-xl">{{ $subSections->name }}</h1>
                     <button class="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center w-1/5 mx-auto transition-all ease-in-out duration-300 font-bold" type="button" data-modal-toggle="new-modal">
                         Tambahkan Soal
                     </button>
@@ -176,12 +176,24 @@
 
             </div>
         
-            {{-- <div>
+            <div>
                 <div class="flex flex-row flex-nowrap justify-between">
-                    <button class="py-2.5 bg-blue-700 hover:bg-blue-800 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-base px-5 text-center transition-all duration-300 ease-in-out">Previous</button>
-                    <button class="py-2.5 bg-blue-700 hover:bg-blue-800 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-base px-5 text-center transition-all duration-300 ease-in-out">Next</button>
+                    @if ( ($subsectionID - 1)  >= ($underLimit->subsectionID) )
+                        <a href="/package/section/subsection/question/{{ $subsectionID - 1 }}">
+                            <button class="py-2.5 bg-blue-700 hover:bg-blue-800 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-base px-5 text-center transition-all duration-300 ease-in-out">Previous</button>
+                        </a>    
+                    @else
+                        <button type="button" class="py-2.5 bg-gray-400 hover:bg-gray-500 cursor-not-allowed  text-white focus:outline-none font-bold rounded-lg text-base px-5 text-center transition-all duration-300 ease-in-out">Previous</button>
+                    @endif
+                    @if ( ($subsectionID + 1) <= ($upperLimit->subsectionID) )
+                        <a href="/package/section/subsection/question/{{ $subsectionID + 1 }}">
+                            <button type="button" class="py-2.5 bg-blue-700 hover:bg-blue-800 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-base px-5 text-center transition-all duration-300 ease-in-out">Next</button>
+                        </a>
+                    @else
+                        <button type="button" class="py-2.5 bg-gray-400 hover:bg-gray-500 cursor-not-allowed  text-white focus:outline-none font-bold rounded-lg text-base px-5 text-center transition-all duration-300 ease-in-out">Next</button>
+                    @endif
                 </div>
-            </div> --}}
+            </div>
         </div>
 
     </div>

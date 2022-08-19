@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class AddRelationsToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('roleID')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('SET NULL');
+            $table->foreign('pangkatID')->references('id')->on('pangkats')->onDelete('SET NULL');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_roleID_foreign');
+            $table->dropForeign('users_pangkatID_foreign');
         });
     }
-};
+}

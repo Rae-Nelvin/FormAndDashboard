@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\QuestionGroup;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
-class questionGroupSeeder extends Seeder
+class QuestionGroupSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,16 +18,29 @@ class questionGroupSeeder extends Seeder
         QuestionGroup::create([
             'type' => 'EDP',
             'status' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         QuestionGroup::create([
             'type' => 'PKB',
             'status' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         QuestionGroup::create([
             'type' => 'SKP',
             'status' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        QuestionGroup::create([
+            'type' => 'Nilai SKP',
+            'status' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

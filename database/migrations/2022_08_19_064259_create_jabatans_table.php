@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('answer_packages', function (Blueprint $table) {
+        Schema::create('jabatans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('questionGroupID');
-            $table->unsignedBigInteger('questionSectionID');
-            $table->unsignedBigInteger('questionSubSectionID');
-            $table->timestamps();
-            $table->softDeletes();
+            $table->unsignedBigInteger('jabatanListID');
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_packages');
+        Schema::dropIfExists('jabatans');
     }
 };

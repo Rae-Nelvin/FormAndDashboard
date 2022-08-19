@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('question_sections', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('groupQuestionID');
-            $table->foreign('groupQuestionID')->references('id')->on('question_groups')->onUpdate('cascade');
+            $table->unsignedBigInteger('groupQuestionID')->nullable();
+            $table->foreign('groupQuestionID')->references('id')->on('question_groups')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
         });
     }
