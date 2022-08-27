@@ -1,16 +1,5 @@
 <!-- start navbar -->
-<div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">
-    
-    <!-- logo -->
-    <div class="flex-none w-56 flex flex-row items-center">
-      <img src="{{ asset('DashboardIcon/img/logo.png') }}" class="w-10 flex-none">
-      <strong class="capitalize ml-1 flex-1">cleopatra</strong>
-
-      <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
-        <i class="fad fa-list-ul"></i>
-      </button>
-    </div>
-    <!-- end logo -->   
+<div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white py-[25px] px-10 border-b border-gray-300">  
     
     <!-- navbar content toggle -->
     <button id="navbarToggle" class="hidden md:block md:fixed right-0 mr-6">
@@ -21,70 +10,60 @@
     <!-- navbar content -->
     <div id="navbar" class="animated md:hidden md:fixed md:top-0 md:w-full md:left-0 md:mt-16 md:border-t md:border-b md:border-gray-200 md:p-10 md:bg-white flex-1 pl-3 flex flex-row flex-wrap justify-between items-center md:flex-col md:items-center">
       <!-- left -->
-      <div class="text-gray-600 md:w-full md:flex md:flex-row md:justify-evenly md:pb-10 md:mb-10 md:border-b md:border-gray-200"> 
-      </div>
+      <form action="#" method="POST" class="w-[626px] border-[1px] h-[50px] border-[#C4CACD]/40 rounded-full py-5 px-10 flex flex-row justify-between items-center flex-nowrap">
+        @csrf
+        <input type="text" name="search" placeholder="Search..." class="border-0 outline-none focus:outline-none focus:border-0 focus:ring-0">
+        <button  class="text-[#C4CACD]/90">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/>
+          </svg>
+        </button>
+      </form>
       <!-- end left -->      
 
       <!-- right -->
-      <div class="flex flex-row-reverse items-center"> 
+      <div class="flex flex-row items-center"> 
+
+        @if(1 == 2)
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="text-[#0060FF]">
+          <path fill="currentColor" d="M28.707 19.293L26 16.586V13a10.014 10.014 0 0 0-9-9.95V1h-2v2.05A10.014 10.014 0 0 0 6 13v3.586l-2.707 2.707A1 1 0 0 0 3 20v3a1 1 0 0 0 1 1h7v.777a5.152 5.152 0 0 0 4.5 5.199A5.006 5.006 0 0 0 21 25v-1h7a1 1 0 0 0 1-1v-3a1 1 0 0 0-.293-.707ZM19 25a3 3 0 0 1-6 0v-1h6Zm8-3H5v-1.586l2.707-2.707A1 1 0 0 0 8 17v-4a8 8 0 0 1 16 0v4a1 1 0 0 0 .293.707L27 20.414Z"/>
+        </svg>
+        @else 
+          <img src="{{ asset('DashboardIcon/img/Group 237544.svg') }}" class="w-[26px] h-[26px]">
+        @endif
 
         <!-- user -->
-        <div class="dropdown relative md:static">
-
-          <button class="menu-btn focus:outline-none focus:shadow-outline flex flex-wrap items-center">
-            <div class="w-8 h-8 overflow-hidden rounded-full">
-              <img class="w-full h-full object-cover" src="{{ asset('DashboardIcon/img/user.svg') }}" >
-            </div> 
-
-            <div class="ml-2 capitalize flex ">
-              <h1 class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none">moeSaid</h1>
-              <i class="fad fa-chevron-down ml-2 text-xs leading-none"></i>
-            </div>                        
+        
+        <div class="flex items-center text-sm font-medium rounded-lg md:mr-0 focus:ring-4 bg-[#F2F8FF] py-[6px] px-[17px] ml-[46px]">
+          <span class="sr-only">Open user menu</span>
+          <img class="mr-2 w-[45px] h-[45px] rounded-full" src="{{ asset('DashboardIcon/img/user4.png') }}" alt="user photo">
+          <div class="flex flex-col items-start ml-[9px]">
+            <h1 class="font-semibold text-[13px] text-[#1F1F1F]">Andy Warhol</h1>
+            <h2 class="font-medium text-[11px] text-[#5E6E78]">andywarhol@mail.com</h2>
+          </div>
+          <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" type="button">
+            <img src="{{ asset('DashboardIcon/img/triple-dots.svg') }}" alt="triple-dots" class="w-5 h-4 ml-[42px]">
           </button>
+        </div>
 
-          <button class="hidden fixed top-0 left-0 z-10 w-full h-full menu-overflow"></button>
-
-          <div class="text-gray-500 menu hidden md:mt-10 md:w-full rounded bg-white shadow-md absolute z-20 right-0 w-40 mt-5 py-2 animated faster">
-
-            <!-- item -->
-            <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href="#">
-              <i class="fad fa-user-edit text-xs mr-1"></i> 
-              edit my profile
-            </a>     
-            <!-- end item -->
-
-            <!-- item -->
-            <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href="#">
-              <i class="fad fa-inbox-in text-xs mr-1"></i> 
-              my inbox
-            </a>     
-            <!-- end item -->
-
-            <!-- item -->
-            <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href="#">
-              <i class="fad fa-badge-check text-xs mr-1"></i> 
-              tasks
-            </a>     
-            <!-- end item -->
-
-            <!-- item -->
-            <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href="#">
-              <i class="fad fa-comment-alt-dots text-xs mr-1"></i> 
-              chats
-            </a>     
-            <!-- end item -->
-
-            <hr>
-
-            <!-- item -->
-            <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href="#">
-              <i class="fad fa-user-times text-xs mr-1"></i> 
-              log out
-            </a>     
-            <!-- end item -->
-
+        <!-- Dropdown menu -->
+        <div id="dropdownAvatarName" class="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow hidden" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(319px, 62px);">
+          <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+            <li>
+              <a href="#" class="block py-2 px-4 hover:bg-[#F2F8FF]">Dashboard</a>
+            </li>
+            <li>
+              <a href="#" class="block py-2 px-4 hover:bg-[#F2F8FF]">Settings</a>
+            </li>
+            <li>
+              <a href="#" class="block py-2 px-4 hover:bg-[#F2F8FF]">Earnings</a>
+            </li>
+          </ul>
+          <div class="py-1">
+            <a href="#" class="block py-2 px-4 text-sm text-[#FF5959] hover:bg-[#F2F8FF]">Sign out</a>
           </div>
         </div>
+
         <!-- end user -->               
 
       </div>

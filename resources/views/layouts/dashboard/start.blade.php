@@ -15,13 +15,13 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
     </head>
-    <body class="bg-gray-100">
+    <body class="bg-[#f0f8ff] min-h-screen h-full flex flex-row flex-nowrap w-full">
 
-        @include('layouts.dashboard.navigation')
+        @include('layouts.dashboard.sidebar')
+        
+        <div class="h-full flex flex-col flex-nowrap w-full">
 
-        <div class="h-screen flex flex-row flex-nowrap">
-
-            @include('layouts.dashboard.sidebar')
+            @include('layouts.dashboard.navigation')
 
             <main class="w-full">
                 @yield('content')
@@ -30,5 +30,6 @@
         </div>
         
         @include('layouts.dashboard.end')
+
 
         

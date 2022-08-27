@@ -19,7 +19,7 @@ module.exports = {
         'xl': {'max': '1279px'},
       },
       fontFamily: {
-        'sans': ['Ubuntu', 'Sans-serif']
+        'sans': ['Inter', 'Sans-serif']
       },
       extend: {
         spacing: {

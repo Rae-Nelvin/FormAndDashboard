@@ -24,7 +24,12 @@ class QuestionController extends Controller
             ->where('question_groups.id', '=', $id)
             ->select('question_groups.id as groupID', 'question_sections.*')
             ->get();
-        return view('pages.admin.questions.questionSectionDashboard', ['data' => $data, 'groupID' => $id]);
+        $title = DB::table('question_groups')
+            ->join('question_sections', 'question_groups.id', '=', 'question_sections.groupQuestionID')
+            ->where('question_groups.id', '=', $id)
+            ->select('question_groups.*')
+            ->first();
+        return view('pages.admin.questions.questionSectionDashboard', ['data' => $data, 'groupID' => $id, 'title' => $title]);
     }
 
     /**
@@ -93,8 +98,14 @@ class QuestionController extends Controller
             ->where('question_sub_sections.sectionQuestionID', '=', $id)
             ->select('question_sub_sections.*')
             ->get();
+        $title = DB::table('question_sub_sections')
+            ->join('question_sections', 'question_sub_sections.sectionQuestionID', '=', 'question_sections.id')
+            ->join('question_groups', 'question_sections.groupQuestionID', '=', 'question_groups.id')
+            ->select('question_groups.type', 'question_sections.name')
+            ->where('question_sub_sections.id', '=', $id)
+            ->first();
 
-        return view('pages.admin.questions.questionSubSectionDashboard', ['data' => $data, 'sectionQuestionID' => $id]);
+        return view('pages.admin.questions.questionSubSectionDashboard', ['data' => $data, 'sectionQuestionID' => $id, 'title' => $title]);
     }
 
     /**
@@ -184,8 +195,14 @@ class QuestionController extends Controller
             ->where('questions.sectionID', '=', $fQuestion->sectionID)
             ->orderBy('created_at', 'desc')
             ->first();
+        $title = DB::table('question_sub_sections')
+            ->join('question_sections', 'question_sub_sections.sectionQuestionID', '=', 'question_sections.id')
+            ->join('question_groups', 'question_sections.groupQuestionID', '=', 'question_groups.id')
+            ->select('question_groups.type', 'question_sections.name as sectionName', 'question_sub_sections.name as subSectionName')
+            ->where('question_sub_sections.id', '=', $fQuestion->subsectionID)
+            ->first();
 
-        return view('pages.admin.questions.questionDashboard', ['subSection' => $subSection, 'question' => $question, 'subsectionID' => $id, 'underLimit' => $underLimit, 'upperLimit' => $upperLimit]);
+        return view('pages.admin.questions.questionDashboard', ['subSection' => $subSection, 'question' => $question, 'subsectionID' => $id, 'underLimit' => $underLimit, 'upperLimit' => $upperLimit, 'title' => $title]);
     }
 
     /**
