@@ -96,10 +96,10 @@
                             <h3 class="mb-2 text-2xl font-medium text-[#23262F] mt-4">Apakah anda yakin ingin menghapus item ini?</h3>
                             <p class="text-base font-medium text-[#87898E]">Tindakan ini tidak dapat dikembalikan</p>
                             <div class="flex flex-row mt-8 space-x-[16px]">
-                                <a data-modal-toggle="popup-modal-1" href="#" type="button" class="text-white bg-[#E53535] hover:bg-[#ac2828] focus:ring-4 focus:outline-none focus:ring-red-300 font-normal rounded-full text-base inline-flex items-center px-[92px] py-5 text-center cursor-pointer transition-all duration-500 ease-in-out">
+                                <a data-modal-toggle="popup-modal-{{ $datas->id }}" href="/package/section/deleteSection/{{ $datas->id }}" type="button" class="text-white bg-[#E53535] hover:bg-[#ac2828] focus:ring-4 focus:outline-none focus:ring-red-300 font-normal rounded-full text-base inline-flex items-center px-[92px] py-5 text-center cursor-pointer transition-all duration-500 ease-in-out">
                                     Hapus
                                 </a>
-                                <button data-modal-toggle="popup-modal-1" type="button" class="text-[#23262F] bg-[#F1F1F1] hover:bg-[#bebebe] focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-full text-base font-normal px-[92px] py-5 focus:z-10 transition-all duration-500 ease-in-out" data-modal-toggle="popup-modal-{{ $datas->id }}">Batalkan</button>
+                                <button data-modal-toggle="popup-modal-{{ $datas->id }}" type="button" class="text-[#23262F] bg-[#F1F1F1] hover:bg-[#bebebe] focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-full text-base font-normal px-[92px] py-5 focus:z-10 transition-all duration-500 ease-in-out" data-modal-toggle="popup-modal-{{ $datas->id }}">Batalkan</button>
                             </div>
                         </div>
                     </div>

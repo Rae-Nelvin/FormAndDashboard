@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\QuestionController;
 
@@ -23,6 +24,8 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 Route::prefix('package/section')->group(function () {
+
+    Route::get('/deletePackage/{id}', [DashboardController::class, 'deletePackage'])->name('deletePackage');
 
     Route::get('/{id}', [QuestionController::class, 'renderSection'])->name('renderSection');
     Route::post('/newSection', [QuestionController::class, 'newSection'])->name('newSection');

@@ -188,19 +188,26 @@ class QuestionController extends Controller
             ->where('question_sub_sections.id', '=', $id)
             ->select('questions.*')
             ->first();
-        $underLimit = DB::table('questions')
-            ->where('questions.sectionID', '=', $fQuestion->sectionID)
-            ->first();
-        $upperLimit = DB::table('questions')
-            ->where('questions.sectionID', '=', $fQuestion->sectionID)
-            ->orderBy('created_at', 'desc')
-            ->first();
-        $title = DB::table('question_sub_sections')
-            ->join('question_sections', 'question_sub_sections.sectionQuestionID', '=', 'question_sections.id')
-            ->join('question_groups', 'question_sections.groupQuestionID', '=', 'question_groups.id')
-            ->select('question_groups.type', 'question_sections.name as sectionName', 'question_sub_sections.name as subSectionName')
-            ->where('question_sub_sections.id', '=', $fQuestion->subsectionID)
-            ->first();
+        if ($fQuestion) {
+            $underLimit = DB::table('questions')
+                ->where('questions.sectionID', '=', $fQuestion->sectionID)
+                ->first();
+            $upperLimit = DB::table('questions')
+                ->where('questions.sectionID', '=', $fQuestion->sectionID)
+                ->orderBy('created_at', 'desc')
+                ->first();
+            $title = DB::table('question_sub_sections')
+                ->join('question_sections', 'question_sub_sections.sectionQuestionID', '=', 'question_sections.id')
+                ->join('question_groups', 'question_sections.groupQuestionID', '=', 'question_groups.id')
+                ->select('question_groups.type', 'question_sections.name as sectionName', 'question_sub_sections.name as subSectionName')
+                ->where('question_sub_sections.id', '=', $fQuestion->subsectionID)
+                ->first();
+        } else {
+            $underLimit = null;
+            $upperLimit = null;
+            $title = null;
+            $question = 0;
+        }
 
         return view('pages.admin.questions.questionDashboard', ['subSection' => $subSection, 'question' => $question, 'subsectionID' => $id, 'underLimit' => $underLimit, 'upperLimit' => $upperLimit, 'title' => $title]);
     }
