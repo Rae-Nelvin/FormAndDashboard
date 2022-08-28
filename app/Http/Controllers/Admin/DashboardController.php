@@ -8,6 +8,28 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+    public function renderDashboard()
+    {
+        $data = QuestionGroup::all();
+
+        return view('pages.admin.dashboard', compact('data'));
+    }
+
+    public function createGroup(Request $request)
+    {
+        $request->validate([
+            'type' => 'required'
+        ]);
+
+        QuestionGroup::create([
+            'type' => $request->type,
+            'status' => 0
+        ]);
+
+        return redirect()->back()->with('success', 'Paket Soal baru telah berhasil dibuat!');
+    }
+
     /**
      * To delete Package Soal
      *
@@ -17,7 +39,7 @@ class DashboardController extends Controller
     public function deletePackage($id)
     {
         $package = QuestionGroup::findOrFail($id);
-        $package->delet();
+        $package->delete();
 
         return redirect()->back()->with('fail', 'Sebuah paket soal berhasil dihapus!');
     }

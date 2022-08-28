@@ -19,12 +19,10 @@ Route::get('/', function () {
     return view('pages.welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('pages.admin.dashboard');
-})->name('dashboard');
-
 Route::prefix('package/section')->group(function () {
 
+    Route::get('/dashboard', [DashboardController::class, 'renderDashboard'])->name('renderDashboard');
+    Route::post('/newGroup', [DashboardController::class, 'createGroup'])->name('newGroup');
     Route::get('/deletePackage/{id}', [DashboardController::class, 'deletePackage'])->name('deletePackage');
 
     Route::get('/{id}', [QuestionController::class, 'renderSection'])->name('renderSection');
