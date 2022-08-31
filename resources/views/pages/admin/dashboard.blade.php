@@ -128,7 +128,7 @@
                             <h3 class="mb-2 text-2xl font-medium text-[#23262F] mt-4">Apakah anda yakin ingin menghapus item ini?</h3>
                             <p class="text-base font-medium text-[#87898E]">Tindakan ini tidak dapat dikembalikan</p>
                             <div class="flex flex-row mt-8 space-x-[16px]">
-                                <a data-modal-toggle="popup-modal-{{ $datas->id }}" href="#" type="button" class="text-white bg-[#E53535] hover:bg-[#ac2828] focus:ring-4 focus:outline-none focus:ring-red-300 font-normal rounded-full text-base inline-flex items-center px-[92px] py-5 text-center cursor-pointer transition-all duration-500 ease-in-out">
+                                <a data-modal-toggle="popup-modal-{{ $datas->id }}" href="{{ route('admin.deletePackage',$datas->id) }}" type="button" class="text-white bg-[#E53535] hover:bg-[#ac2828] focus:ring-4 focus:outline-none focus:ring-red-300 font-normal rounded-full text-base inline-flex items-center px-[92px] py-5 text-center cursor-pointer transition-all duration-500 ease-in-out">
                                     Hapus
                                 </a>
                                 <button data-modal-toggle="popup-modal-{{ $datas->id }}" type="button" class="text-[#23262F] bg-[#F1F1F1] hover:bg-[#bebebe] focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-full text-base font-normal px-[92px] py-5 focus:z-10 transition-all duration-500 ease-in-out">Batalkan</button>
@@ -166,7 +166,7 @@
                                     <path fill="currentColor" d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0 0 42 42h216v494zM544 472c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v108H372c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h108v108c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V644h108c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V472z"/>
                                 </svg>
                             </div>
-                            <form class="space-y-6 w-full" action="{{ route('newGroup') }}" method="POST">
+                            <form class="space-y-6 w-full" action="{{ route('admin.newGroup') }}" method="POST">
                                 @csrf
                                 <div>
                                     <label for="text" class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-300">Nama Paket Soal</label>
@@ -185,4 +185,4 @@
 
     </div>
 
-@endsection
+@stop

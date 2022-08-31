@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AnswerPackage extends Model
@@ -21,6 +22,7 @@ class AnswerPackage extends Model
         'questionGroupID',
         'questionSectionID',
         'questionSubSectionID',
+        'periodeID'
     ];
 
     /**
@@ -61,5 +63,15 @@ class AnswerPackage extends Model
     public function questionSubSection(): HasMany
     {
         return $this->hasMany(QuestionSubSection::class);
+    }
+
+    /**
+     * Get the periode associated with the AnswerPackage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function periode(): HasOne
+    {
+        return $this->hasOne(Periode::class);
     }
 }

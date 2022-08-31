@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\User\KuesionerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +21,24 @@ Route::get('/', function () {
     return view('pages.welcome');
 });
 
-Route::prefix('package/section')->group(function () {
+Route::prefix('user/')->name('user.')->group(function () {
+    Route::get('/dashboard', [UserDashboardController::class, 'render'])->name('renderDashboard');
+    Route::get('/package', function () {
+        return view('pages.user.kuesioner.dashboard');
+    });
+    Route::get('/package/kuesioner', function () {
+        return view('pages.user.kuesioner.kuesioner');
+    });
+});
 
-    Route::get('/dashboard', [DashboardController::class, 'renderDashboard'])->name('renderDashboard');
-    Route::post('/newGroup', [DashboardController::class, 'createGroup'])->name('newGroup');
-    Route::get('/deletePackage/{id}', [DashboardController::class, 'deletePackage'])->name('deletePackage');
+Route::prefix('admin/')->name('admin.')->group(function () {
+
+    Route::get('/dashboard', [AdminDashboardController::class, 'renderDashboard'])->name('renderDashboard');
+    Route::post('/newGroup', [AdminDashboardController::class, 'createGroup'])->name('newGroup');
+    Route::get('/deletePackage/{id}', [AdminDashboardController::class, 'deletePackage'])->name('deletePackage');
+});
+
+Route::prefix('package/section')->group(function () {
 
     Route::get('/{id}', [QuestionController::class, 'renderSection'])->name('renderSection');
     Route::post('/newSection', [QuestionController::class, 'newSection'])->name('newSection');

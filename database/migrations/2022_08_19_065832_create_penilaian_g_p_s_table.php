@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('penilaianGPAID');
             $table->foreign('penilaianGPAID')->references('id')->on('penilaian_g_p_a_s')->onDelete('cascade');
             $table->double('GPS')->default(0);
-            $table->string('periode')->default('2021/2022');
+            $table->unsignedBigInteger('periodeID');
             $table->timestamps();
         });
     }

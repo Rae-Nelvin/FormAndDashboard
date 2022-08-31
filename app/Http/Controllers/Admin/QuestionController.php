@@ -98,14 +98,18 @@ class QuestionController extends Controller
             ->where('question_sub_sections.sectionQuestionID', '=', $id)
             ->select('question_sub_sections.*')
             ->get();
-        $title = DB::table('question_sub_sections')
-            ->join('question_sections', 'question_sub_sections.sectionQuestionID', '=', 'question_sections.id')
-            ->join('question_groups', 'question_sections.groupQuestionID', '=', 'question_groups.id')
-            ->select('question_groups.type', 'question_sections.name')
-            ->where('question_sub_sections.id', '=', $id)
+        $sectionTitle = DB::table('question_sections')
+            ->join('question_sub_sections', 'question_sections.id', '=', 'question_sub_sections.sectionQuestionID')
+            ->where('question_sub_sections.sectionQuestionID', '=', $id)
+            ->select('question_sections.name', 'question_sections.id')
+            ->first();
+        $groupTitle = DB::table('question_groups')
+            ->join('question_sections', 'question_groups.id', '=', 'question_sections.groupQuestionID')
+            ->where('question_sections.id', '=', $sectionTitle->id)
+            ->select('question_groups.type')
             ->first();
 
-        return view('pages.admin.questions.questionSubSectionDashboard', ['data' => $data, 'sectionQuestionID' => $id, 'title' => $title]);
+        return view('pages.admin.questions.questionSubSectionDashboard', ['data' => $data, 'sectionQuestionID' => $id, 'sectionTitle' => $sectionTitle, 'groupTitle' => $groupTitle]);
     }
 
     /**

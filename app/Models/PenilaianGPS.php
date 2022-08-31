@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PenilaianGPS extends Model
@@ -18,7 +19,7 @@ class PenilaianGPS extends Model
     protected $fillable = [
         'penilaianGPAID',
         'GPS',
-        'periode'
+        'periodeID'
     ];
 
     /**
@@ -26,8 +27,18 @@ class PenilaianGPS extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function PenilaianGPA(): HasOne
+    public function PenilaianGPA(): BelongsTo
     {
-        return $this->hasOne(PenilaianGPA::class);
+        return $this->belongsTo(PenilaianGPA::class);
+    }
+
+    /**
+     * Get the periode associated with the PenilaianGPS
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function periode(): HasOne
+    {
+        return $this->hasOne(Periode::class);
     }
 }
