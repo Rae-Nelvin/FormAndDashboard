@@ -35,12 +35,5 @@ class QuestionGroupSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-
-        QuestionGroup::create([
-            'type' => 'Nilai SKP',
-            'status' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
     }
 }

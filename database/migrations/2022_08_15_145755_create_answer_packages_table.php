@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('questionGroupID');
             $table->unsignedBigInteger('questionSectionID');
             $table->unsignedBigInteger('questionSubSectionID');
+            $table->boolean('isDone')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

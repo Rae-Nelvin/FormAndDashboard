@@ -63,6 +63,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Penguasaan dan Penerapan Paradigma Pedagogi Ignatian dalam mendidik siswa.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -83,6 +85,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Mampu mengembangkan materi pembelajaran secara kreatif.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -103,6 +107,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Mampu mengembangkan kurikulum yang terkait dengan bidang pengembangan yang diampu.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -123,6 +129,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Mampu menyelenggarakan kegiatan pengembangan yang mendidik.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -143,6 +151,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Memfasilitasi pengembangan potensi peserta didik untuk mengaktualisasikan berbagai potensi yang dimiliki.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -163,6 +173,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Berkomunikasi secara efektif, empatik, dan santun dengan peserta didik.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -183,6 +195,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Memanfaatkan TIK (Teknologi Informasi dan Komunikasi) untuk kepentingan penyelenggaraan kegiatan pengembangan yang mendidik.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -203,6 +217,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Melakukan penilaian dan evaluasi proses dan hasil belajar, memanfaatkan hasil penilaian dan evaluasi untuk kepentingan pembelajaran.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -223,6 +239,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Melakukan tindakan reflektif untuk peningkatan kualitas pembelajaran melalui PKB(Peningkatan Kompetensi Berkelanjutan).',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -243,6 +261,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Membuat Perencanaan Pembelajaran.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -263,6 +283,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Pelaksanaan Kegiatan Pembelajaran yang Aktif, Efektif, dan Menyenangkan dengan dinamika PPI.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -283,6 +305,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 29,
             'question' => 'Penilaian Pembelajaran.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -313,6 +337,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Bertindak sesuai dengan norma agama, hukum, sosial, dan kebudayaan Nasional Indonesia.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -333,6 +359,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Menampilkan diri sebagai pribadi yang matang ( jujur, berkarakter baik, menjadi teladan bagi peserta didik dan masyarakat).',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -353,6 +381,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Menampilkan diri sebagai pribadi yang mantap, stabil, dewasa, arif, dan berwibawa.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -373,6 +403,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Menunjukkan etos kerja, tanggung jawab yang tinggi, rasa bangga menjadi Pendidik, dan rasa percaya diri (Etos kerja tinggi).',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -393,6 +425,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Menjunjung tinggi kode etik profesi Pendidik dan PUK yayasan.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -413,6 +447,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Bertindak objektif serta tidak diskriminatif karena pertimbangan jenis kelamin, agama, ras, kondisi fisik, latar belakang keluarga, dan status sosial ekonomi (memartabatkan).',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -433,6 +469,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Berkomunikasi secara efektif, empatik, dan santun dengan sesama pendidik, tenaga kependidikan, orang tua, dan masyarakat.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -453,6 +491,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Mampu beradaptasi dengan lingkungan kerja.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -473,6 +513,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 30,
             'question' => 'Menunjukkan sikap bersedia bekerjasama dengan kolega.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -503,6 +545,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 31,
             'question' => 'Berusaha memperjuangkan kebenaran',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -523,6 +567,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 31,
             'question' => 'Berusaha terus menerus mengejar keunggulan.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -543,6 +589,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 31,
             'question' => 'Bersedia untuk melayani sesama.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -563,6 +611,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 31,
             'question' => 'Berusaha mewujudkan kasih kepada sesama.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -583,6 +633,8 @@ class PKBQuestionSeeder extends Seeder
             'subsectionID' => 31,
             'question' => 'Berkomitmen terhadap keadilan.',
             'questionType' => 'checkbox',
+            'minimumScore' => 1,
+            'maximumScore' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

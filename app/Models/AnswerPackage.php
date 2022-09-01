@@ -22,7 +22,8 @@ class AnswerPackage extends Model
         'questionGroupID',
         'questionSectionID',
         'questionSubSectionID',
-        'periodeID'
+        'periodeID',
+        'isDone'
     ];
 
     /**

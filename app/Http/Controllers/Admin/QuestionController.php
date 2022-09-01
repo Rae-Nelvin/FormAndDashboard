@@ -98,16 +98,22 @@ class QuestionController extends Controller
             ->where('question_sub_sections.sectionQuestionID', '=', $id)
             ->select('question_sub_sections.*')
             ->get();
-        $sectionTitle = DB::table('question_sections')
-            ->join('question_sub_sections', 'question_sections.id', '=', 'question_sub_sections.sectionQuestionID')
-            ->where('question_sub_sections.sectionQuestionID', '=', $id)
-            ->select('question_sections.name', 'question_sections.id')
-            ->first();
-        $groupTitle = DB::table('question_groups')
-            ->join('question_sections', 'question_groups.id', '=', 'question_sections.groupQuestionID')
-            ->where('question_sections.id', '=', $sectionTitle->id)
-            ->select('question_groups.type')
-            ->first();
+        if ($data->isEmpty()) {
+            $groupTitle = '';
+            $sectionTitle = '';
+            $data = '';
+        } else {
+            $sectionTitle = DB::table('question_sections')
+                ->join('question_sub_sections', 'question_sections.id', '=', 'question_sub_sections.sectionQuestionID')
+                ->where('question_sub_sections.sectionQuestionID', '=', $id)
+                ->select('question_sections.name', 'question_sections.id')
+                ->first();
+            $groupTitle = DB::table('question_groups')
+                ->join('question_sections', 'question_groups.id', '=', 'question_sections.groupQuestionID')
+                ->where('question_sections.id', '=', $sectionTitle->id)
+                ->select('question_groups.type')
+                ->first();
+        }
 
         return view('pages.admin.questions.questionSubSectionDashboard', ['data' => $data, 'sectionQuestionID' => $id, 'sectionTitle' => $sectionTitle, 'groupTitle' => $groupTitle]);
     }
