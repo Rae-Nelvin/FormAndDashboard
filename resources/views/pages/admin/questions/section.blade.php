@@ -2,7 +2,6 @@
 
 @section('content')
 
-    <div class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start">
         @if ($title)
             <h1 class="font-semibold text-[32px]">{{ $title->title }}</h1>
             <div class="flex flex-col w-full space-y-[30px] mt-[38px]">
@@ -89,7 +88,6 @@
             <button class="block mt-[30px] text-white bg-[#0060FF] font-normal text-md hover:bg-[#124392] focus:ring-4 focus:outline-none rounded-full px-10 py-[11px] text-center w-auto mx-auto transition-all ease-in-out duration-500" type="button" data-modal-toggle="new-modal">
                 Tambahkan Section
             </button>
-        </div>
     
         <!-- Main New modal -->
         <div id="new-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
@@ -162,7 +160,5 @@
         </div> 
         <!-- End of New Modal -->
         @endif
-
-    </div>
 
 @endsection

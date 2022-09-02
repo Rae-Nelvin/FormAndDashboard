@@ -2,7 +2,6 @@
 
 @section('content')
     @if ($data != null)
-        <div class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start mb-40">
             <h1 class="font-semibold text-[32px]">{{ $groupTitle->title }}</h1>
             <p class="mt-6 font-light text-xs">Paket Pertanyaan > {{ $groupTitle->title }} > {{ $sectionTitle->name }}</p>
             <div class="flex flex-col h-auto justify-between py-6 w-full">
@@ -127,7 +126,6 @@
                 </div>
             </div> 
             <!-- End of New Modal -->
-        </div>
     @else
         <!-- Modal New toggle -->
         <button class="fixed z-90 bottom-32 right-40 w-[45px] h-[45px] text-white text-4xl" type="button" data-modal-toggle="new-modal">
@@ -166,7 +164,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <!-- End of New Modal -->
     @endif
     

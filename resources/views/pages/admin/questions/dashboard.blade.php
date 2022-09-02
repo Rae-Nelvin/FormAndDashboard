@@ -2,8 +2,7 @@
 
 @section('content')
 
-        @if($question)
-            <div class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start">
+            @if($question)
                 <h1 class="font-semibold text-[32px]">{{ $title->sectionName }}</h1>
                 <p class="mt-6 font-light text-xs">Paket Pertanyaan > {{ $title->title }} > {{ $title->sectionName }} > {{ $title->subSectionName }}</p>
                 <p class="mt-6 font-semibold text-base text-red-600">{!! $title->description !!}</p>
@@ -212,7 +211,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         @else
             <!-- Modal New toggle -->
             <button class="fixed z-90 bottom-32 right-12 w-[45px] h-[45px] text-white text-4xl" type="button" data-modal-toggle="new-modal">
@@ -273,10 +271,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
             <!-- End of New Modal -->
         @endif
-
-        
 
 @endsection

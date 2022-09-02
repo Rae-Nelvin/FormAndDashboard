@@ -2,7 +2,6 @@
 
 @section('content')
 
-    <div class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start">
         <h1 class="font-semibold text-[32px]">Jawaban</h1>
 
         <!-- Cards -->
@@ -186,7 +185,5 @@
                 </div>
             </div> 
             <!-- End of New Modal -->
-
-    </div>
 
 @stop

@@ -44,4 +44,34 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('fail', 'Sebuah paket soal berhasil dihapus!');
     }
+
+    /**
+     * renderPengguna
+     *
+     * @return void
+     */
+    public function renderPengguna()
+    {
+        return view('pages.admin.pengguna');
+    }
+
+    /**
+     * renderJawaban
+     *
+     * @return void
+     */
+    public function renderJawaban()
+    {
+        return view('pages.admin.jawaban.dashboard');
+    }
+
+    /**
+     * renderAssign
+     *
+     * @return void
+     */
+    public function renderAssign()
+    {
+        return view('pages.admin.assign.dashboard');
+    }
 }

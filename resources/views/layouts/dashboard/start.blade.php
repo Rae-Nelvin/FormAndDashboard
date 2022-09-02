@@ -23,7 +23,7 @@
 
             @include('layouts.dashboard.navigation')
 
-            <main class="w-full">
+            <main class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start">
                 
                 <!-- Alerts -->
                 @if (\Session::has('fail'))
