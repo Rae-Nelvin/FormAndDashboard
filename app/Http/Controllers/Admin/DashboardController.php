@@ -23,7 +23,8 @@ class DashboardController extends Controller
         ]);
 
         QuestionGroup::create([
-            'type' => $request->type,
+            'title' => $request->type,
+            'description' => $request->description,
             'status' => 0
         ]);
 

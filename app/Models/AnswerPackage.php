@@ -20,8 +20,6 @@ class AnswerPackage extends Model
     protected $fillable = [
         'userID',
         'questionGroupID',
-        'questionSectionID',
-        'questionSubSectionID',
         'periodeID',
         'isDone'
     ];
@@ -44,26 +42,6 @@ class AnswerPackage extends Model
     public function questionGroup(): HasMany
     {
         return $this->hasMany(QuestionGroup::class);
-    }
-
-    /**
-     * Get all of the questionSection for the AnswerPackage
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function questionSection(): HasMany
-    {
-        return $this->hasMany(QuestionSection::class);
-    }
-
-    /**
-     * Get all of the questionSubSection for the AnswerPackage
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function questionSubSection(): HasMany
-    {
-        return $this->hasMany(QuestionSubSection::class);
     }
 
     /**

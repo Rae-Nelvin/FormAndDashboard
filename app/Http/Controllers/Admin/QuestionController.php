@@ -29,7 +29,7 @@ class QuestionController extends Controller
             ->where('question_groups.id', '=', $id)
             ->select('question_groups.*')
             ->first();
-        return view('pages.admin.questions.questionSectionDashboard', ['data' => $data, 'groupID' => $id, 'title' => $title]);
+        return view('pages.admin.questions.section', ['data' => $data, 'groupID' => $id, 'title' => $title]);
     }
 
     /**
@@ -111,11 +111,11 @@ class QuestionController extends Controller
             $groupTitle = DB::table('question_groups')
                 ->join('question_sections', 'question_groups.id', '=', 'question_sections.groupQuestionID')
                 ->where('question_sections.id', '=', $sectionTitle->id)
-                ->select('question_groups.type')
+                ->select('question_groups.title')
                 ->first();
         }
 
-        return view('pages.admin.questions.questionSubSectionDashboard', ['data' => $data, 'sectionQuestionID' => $id, 'sectionTitle' => $sectionTitle, 'groupTitle' => $groupTitle]);
+        return view('pages.admin.questions.subSection', ['data' => $data, 'sectionQuestionID' => $id, 'sectionTitle' => $sectionTitle, 'groupTitle' => $groupTitle]);
     }
 
     /**
@@ -209,7 +209,7 @@ class QuestionController extends Controller
             $title = DB::table('question_sub_sections')
                 ->join('question_sections', 'question_sub_sections.sectionQuestionID', '=', 'question_sections.id')
                 ->join('question_groups', 'question_sections.groupQuestionID', '=', 'question_groups.id')
-                ->select('question_groups.type', 'question_sections.name as sectionName', 'question_sub_sections.name as subSectionName')
+                ->select('question_groups.title', 'question_sections.name as sectionName', 'question_sub_sections.name as subSectionName', 'question_groups.description')
                 ->where('question_sub_sections.id', '=', $fQuestion->subsectionID)
                 ->first();
         } else {
@@ -219,7 +219,7 @@ class QuestionController extends Controller
             $question = 0;
         }
 
-        return view('pages.admin.questions.questionDashboard', ['subSection' => $subSection, 'question' => $question, 'subsectionID' => $id, 'underLimit' => $underLimit, 'upperLimit' => $upperLimit, 'title' => $title]);
+        return view('pages.admin.questions.dashboard', ['subSection' => $subSection, 'question' => $question, 'subsectionID' => $id, 'underLimit' => $underLimit, 'upperLimit' => $upperLimit, 'title' => $title]);
     }
 
     /**

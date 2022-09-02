@@ -103,10 +103,10 @@
             @foreach ($data as $datas)
 
             <!-- Start of Card -->
-            <div class="bg-[#2B2B2B] flex flex-col flex-nowrap items-start p-[23px] rounded-lg w-[272px] h-[188px] justify-between space-y-[18px] mr-[45px] mb-[37px]">
+            <div class="bg-[#2B2B2B] flex flex-col flex-nowrap items-start p-[23px] rounded-lg w-[272px] min-h-[188px] justify-between space-y-[18px] mr-[45px] mb-[37px]">
                 <a href="{{ route('renderSection',$datas->id) }}">
                     <div class="flex flex-row flex-nowrap justify-between space-x-[16px] items-center">
-                        <h1 class="font-semibold text-xl text-white">{{ $datas->type }}</h1>
+                        <h1 class="font-semibold text-xl text-white">{{ $datas->title }}</h1>
                     </div>
                 </a>
                 <button data-modal-toggle="popup-modal-{{ $datas->id }}">
@@ -171,6 +171,10 @@
                                 <div>
                                     <label for="text" class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-300">Nama Paket Soal</label>
                                     <input type="text" name="type" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Name Paket Soal" required>
+                                </div>
+                                <div>
+                                    <label for="text" class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-300">Deskripsi Soal</label>
+                                    <textarea name="description" cols="30" rows="3" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Deskripsi Soal" required></textarea>
                                 </div>
                                 <div class="flex flex-row space-x-[16px] justify-center w-full">
                                     <button type="submit" class="w-full text-white bg-[#0060FF] hover:bg-[#124392] focus:ring-4 focus:outline-none font-normal rounded-full px-[45px] text-base py-5 text-center transition-all duration-500 ease-in-out">Tambahkan</button>

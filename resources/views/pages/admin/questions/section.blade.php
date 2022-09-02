@@ -4,7 +4,7 @@
 
     <div class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start">
         @if ($title)
-            <h1 class="font-semibold text-[32px]">{{ $title->type }}</h1>
+            <h1 class="font-semibold text-[32px]">{{ $title->title }}</h1>
             <div class="flex flex-col w-full space-y-[30px] mt-[38px]">
                 @foreach ($data as $datas)
                     <div class="flex flex-row justify-between items-center bg-white w-full py-[22px] px-[23px] rounded-lg cursor-pointer hover:bg-[#D5E6FB] hover:text-[#0060FF] transition-all ease-in-out duration-500">

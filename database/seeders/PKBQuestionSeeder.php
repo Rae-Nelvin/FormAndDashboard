@@ -17,25 +17,6 @@ class PKBQuestionSeeder extends Seeder
      */
     public function run()
     {
-        QuestionSection::create([
-            'groupQuestionID' => 2,
-            'name' => 'Data Diri'
-        ]);
-
-        QuestionSubSection::create([
-            'sectionQuestionID' => 5,
-            'name' => 'Data Diri'
-        ]);
-
-        Question::create([
-            'groupID' => 2,
-            'sectionID' => 5,
-            'subsectionID' => 28,
-            'question' => 'Nama',
-            'questionType' => 'text',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
 
         QuestionSection::create([
             'groupQuestionID' => 2,

@@ -17,7 +17,8 @@ class QuestionGroup extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'type',
+        'title',
+        'description',
         'status',
     ];
 }

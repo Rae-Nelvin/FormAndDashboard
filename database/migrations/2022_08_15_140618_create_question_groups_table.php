@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('question_groups', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('title');
+            $table->string('description');
             $table->boolean('status');
             $table->timestamps();
         });

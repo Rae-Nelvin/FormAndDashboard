@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::table('answer_packages', function (Blueprint $table) {
             $table->foreign('userID')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('questionGroupID')->references('id')->on('question_groups')->onUpdate('cascade');
-            $table->foreign('questionSectionID')->references('id')->on('question_sections')->onUpdate('cascade');
-            $table->foreign('questionSubSectionID')->references('id')->on('question_sub_sections')->onUpdate('cascade');
         });
     }
 

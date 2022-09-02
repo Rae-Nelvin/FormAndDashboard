@@ -3,8 +3,8 @@
 @section('content')
     @if ($data != null)
         <div class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start mb-40">
-            <h1 class="font-semibold text-[32px]">{{ $groupTitle->type }}</h1>
-            <p class="mt-6 font-light text-xs">Paket Pertanyaan > {{ $groupTitle->type }} > {{ $sectionTitle->name }}</p>
+            <h1 class="font-semibold text-[32px]">{{ $groupTitle->title }}</h1>
+            <p class="mt-6 font-light text-xs">Paket Pertanyaan > {{ $groupTitle->title }} > {{ $sectionTitle->name }}</p>
             <div class="flex flex-col h-auto justify-between py-6 w-full">
                 <div class="flex flex-col w-full space-y-[30px]">
                     @foreach ($data as $datas)

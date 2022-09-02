@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -19,6 +20,8 @@ class Answer extends Model
      */
     protected $fillable = [
         'answerPackageID',
+        'questionSectionID',
+        'questionSubSectionID',
         'questionID',
         'answer',
     ];
@@ -31,6 +34,26 @@ class Answer extends Model
     public function answerPackage(): BelongsTo
     {
         return $this->belongsTo(AnswerPackage::class);
+    }
+
+    /**
+     * Get all of the questionSection for the AnswerPackage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questionSection(): HasMany
+    {
+        return $this->hasMany(QuestionSection::class);
+    }
+
+    /**
+     * Get all of the questionSubSection for the AnswerPackage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questionSubSection(): HasMany
+    {
+        return $this->hasMany(QuestionSubSection::class);
     }
 
     /**

@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::table('answers', function (Blueprint $table) {
             $table->foreign('answerPackageID')->references('id')->on('answer_packages')->onUpdate('cascade');
+            $table->foreign('questionSectionID')->references('id')->on('question_sections')->onUpdate('cascade');
+            $table->foreign('questionSubSectionID')->references('id')->on('question_sub_sections')->onUpdate('cascade');
             $table->foreign('questionID')->references('id')->on('questions')->onUpdate('cascade');
         });
     }

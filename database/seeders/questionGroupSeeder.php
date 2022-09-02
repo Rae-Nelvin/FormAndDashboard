@@ -16,24 +16,26 @@ class QuestionGroupSeeder extends Seeder
     public function run()
     {
         QuestionGroup::create([
-            'type' => 'EDP',
+            'title' => 'Evaluasi Diri Pendidik',
             'status' => '1',
+            'description' => 'Tolong isi 1 sampai 4 <br> 1. Buruk <br> 2. Cukup <br> 3. Baik <br> 4. Sangat Baik',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         QuestionGroup::create([
-            'type' => 'PKB',
+            'title' => 'Program Pengembangan Keprofesian Berkelanjutan',
             'status' => '1',
+            'description' => 'PKB',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        QuestionGroup::create([
-            'type' => 'SKP',
-            'status' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        // QuestionGroup::create([
+        //     'type' => 'SKP',
+        //     'status' => '1',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
     }
 }

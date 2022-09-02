@@ -14,7 +14,7 @@ class AddPeriodeColumnOnAnswerPackagesTable extends Migration
     public function up()
     {
         Schema::table('answer_packages', function (Blueprint $table) {
-            $table->unsignedBigInteger('periodeID');
+            $table->unsignedBigInteger('periodeID')->after('isDone');
             $table->foreign('periodeID')->references('id')->on('periodes')->onDelete('cascade');
         });
     }

@@ -5,10 +5,11 @@
         @if($question)
             <div class="h-full w-full py-[43px] px-[33px] flex flex-col flex-nowrap items-start">
                 <h1 class="font-semibold text-[32px]">{{ $title->sectionName }}</h1>
-                <p class="mt-6 font-light text-xs">Paket Pertanyaan > {{ $title->type }} > {{ $title->sectionName }} > {{ $title->subSectionName }}</p>
+                <p class="mt-6 font-light text-xs">Paket Pertanyaan > {{ $title->title }} > {{ $title->sectionName }} > {{ $title->subSectionName }}</p>
+                <p class="mt-6 font-semibold text-base text-red-600">{!! $title->description !!}</p>
                 <div class="flex flex-col h-auto justify-between">
                     @foreach ($subSection as $subSections)
-                        <h1 class="font-semibold text-xl mt-[32px]">{{ $subSections->name }}</h1>
+                        <h1 class="font-semibold text-xl mt-3">{{ $subSections->name }}</h1>
                     @endforeach
                     <div class="flex flex-col flex-nowrap justify-between space-y-[30px] mt-6 ml-[32px] mr-[120px] w-full">
                         @foreach ($question as $questions)
