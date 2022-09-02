@@ -18,7 +18,7 @@ class PenilaianGPA extends Model
     protected $fillable = [
         'userID',
         'GPA',
-        'status',
+        'status'
     ];
 
     /**

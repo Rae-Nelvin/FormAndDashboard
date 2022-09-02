@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreatePenilaianGPASTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('answer_packages', function (Blueprint $table) {
+        Schema::create('penilaian_g_p_a_s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('questionGroupID');
-            $table->boolean('isDone')->nullable()->default(0);
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
+            $table->double('GPA');
+            $table->string('status');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_packages');
+        Schema::dropIfExists('penilaian_g_p_a_s');
     }
-};
+}

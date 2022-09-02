@@ -14,6 +14,7 @@ class AddRelationsToPenilaianGPSTable extends Migration
     public function up()
     {
         Schema::table('penilaian_g_p_s', function (Blueprint $table) {
+            $table->foreign('penilaianGPAID')->references('id')->on('penilaian_g_p_a_s')->onDelete('cascade');
             $table->foreign('periodeID')->references('id')->on('periodes')->onDelete('cascade');
         });
     }
@@ -26,6 +27,7 @@ class AddRelationsToPenilaianGPSTable extends Migration
     public function down()
     {
         Schema::table('penilaian_g_p_s', function (Blueprint $table) {
+            $table->dropForeign('penilaian_g_p_s_penilaianGPAID_foreign');
             $table->dropForeign('penilaian_g_p_s_periodeID_foreign');
         });
     }

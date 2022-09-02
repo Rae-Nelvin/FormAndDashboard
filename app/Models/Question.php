@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Question extends Model
 {
@@ -20,38 +20,37 @@ class Question extends Model
         'sectionID',
         'subsectionID',
         'question',
-        'questionType',
         'minimumScore',
         'maximumScore'
     ];
 
     /**
-     * Get all of the questionGroup for the Question
+     * The questionGroup that belong to the Question
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function questionGroup(): HasMany
+    public function questionGroup(): BelongsToMany
     {
-        return $this->hasMany(QuestionGroup::class);
+        return $this->belongsToMany(QuestionGroup::class);
     }
 
     /**
-     * Get all of the questionSection for the Question
+     * The questionSection that belong to the Question
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function questionSection(): HasMany
+    public function questionSection(): BelongsToMany
     {
-        return $this->hasMany(QuestionSection::class);
+        return $this->belongsToMany(QuestionSection::class);
     }
 
     /**
-     * Get all of the questionSubSection for the Question
+     * The questionSubSection that belong to the Question
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function questionSubSection(): HasMany
+    public function questionSubSection(): BelongsToMany
     {
-        return $this->hasMany(QuestionSubSection::class);
+        return $this->belongsToMany(QuestionSubSection::class);
     }
 }

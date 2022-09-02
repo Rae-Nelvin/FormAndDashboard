@@ -255,21 +255,15 @@
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     <span class="sr-only">Close modal</span>
                 </button>
-                <div class="py-6 px-8 text-center flex flex-col">
-                    <h1 class="font-medium text-2xl">Hapus Akun Pengguna</h1>
-                    <h3 class="mr-8 text-base text-left font-medium text-[#87898E] my-8">Apakah Anda yakin ingin menghapus akun Kathryn Murphy? Mereka akan kehilangan akses untuk masuk ke dalam website.</h3>
-                    <div class="flex flex-row items-center">
-                        <img src="{{ asset('DashboardIcon/img/user5.png') }}" alt="user-avatar" class="w-14 h-14">
-                        <div class="flex flex-col justify-start items-start ml-4">
-                            <h1 class="font-normal text-sm">Kathryn Murphy</h1>
-                            <h2 class="font-normal text-xs">KathrynMurphy5286@email.com</h2>
-                        </div>
-                    </div>
+                <div class="py-6 px-8 text-center items-center flex flex-col">
+                    <img src="{{ asset('DashboardIcon/img/trash-logo.png') }}" alt="trash-logo" class="w-20 h-20">
+                    <h3 class="mb-2 text-2xl font-medium text-[#23262F] mt-4">Apakah anda yakin ingin menghapus pegawai dalam list ini?</h3>
+                    <p class="text-base font-medium text-[#87898E]">Tindakan ini tidak dapat dikembalikan</p>
                     <div class="flex flex-row mt-8 space-x-[16px]">
                         <a data-modal-toggle="popup-modal-1" href="#" type="button" class="text-white bg-[#E53535] hover:bg-[#ac2828] focus:ring-4 focus:outline-none focus:ring-red-300 font-normal rounded-full text-base inline-flex items-center px-[92px] py-5 text-center cursor-pointer transition-all duration-500 ease-in-out">
                             Hapus
                         </a>
-                        <button data-modal-toggle="popup-modal-1" type="button" class="text-[#23262F] bg-[#F1F1F1] hover:bg-[#bebebe] focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-full text-base font-normal px-[92px] py-5 focus:z-10 transition-all duration-500 ease-in-out" data-modal-toggle="popup-modal-1">Batalkan</button>
+                        <button data-modal-toggle="popup-modal-1" type="button" class="text-[#23262F] bg-[#F1F1F1] hover:bg-[#bebebe] focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-full text-base font-normal px-[92px] py-5 focus:z-10 transition-all duration-500 ease-in-out">Batalkan</button>
                     </div>
                 </div>
             </div>

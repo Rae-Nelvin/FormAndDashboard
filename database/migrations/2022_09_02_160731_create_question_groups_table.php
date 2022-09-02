@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateQuestionGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pangkats', function (Blueprint $table) {
+        Schema::create('question_groups', function (Blueprint $table) {
             $table->id();
-            $table->string('pangkatName');
+            $table->string('title');
+            $table->string('description');
+            $table->boolean('status')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pangkats');
+        Schema::dropIfExists('question_groups');
     }
-};
+}

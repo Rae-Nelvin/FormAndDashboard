@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreatePeriodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('roleID')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('SET NULL');
+        Schema::create('periodes', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
         });
     }
 
@@ -25,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_roleID_foreign');
-        });
+        Schema::dropIfExists('periodes');
     }
-};
+}

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreatePenilaianGPSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('penilaian_g_p_a_s', function (Blueprint $table) {
+        Schema::create('penilaian_g_p_s', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userID');
-            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
-            $table->double('GPA')->default(0);
-            $table->string('status')->default('Sangat Buruk');
+            $table->unsignedBigInteger('penilaianGPAID');
+            $table->double('GPS');
+            $table->unsignedBigInteger('periodeID');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penilaian_g_p_a_s');
+        Schema::dropIfExists('penilaian_g_p_s');
     }
-};
+}

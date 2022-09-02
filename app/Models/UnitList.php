@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JabatanList extends Model
+class UnitList extends Model
 {
     use HasFactory;
     public $timestamps = false;
@@ -16,6 +16,6 @@ class JabatanList extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'jabatanName',
+        'name',
     ];
 }

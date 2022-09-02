@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Answer extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -22,8 +21,7 @@ class Answer extends Model
         'answerPackageID',
         'questionSectionID',
         'questionSubSectionID',
-        'questionID',
-        'answer',
+        'answer'
     ];
 
     /**
@@ -33,11 +31,11 @@ class Answer extends Model
      */
     public function answerPackage(): BelongsTo
     {
-        return $this->belongsTo(AnswerPackage::class);
+        return $this->belongsTo(AnswerPacakge::class);
     }
 
     /**
-     * Get all of the questionSection for the AnswerPackage
+     * Get all of the questionSection for the Answer
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -47,22 +45,12 @@ class Answer extends Model
     }
 
     /**
-     * Get all of the questionSubSection for the AnswerPackage
+     * Get all of the questionSubSection for the Answer
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function questionSubSection(): HasMany
     {
         return $this->hasMany(QuestionSubSection::class);
-    }
-
-    /**
-     * Get the question associated with the Answer
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function question(): HasOne
-    {
-        return $this->hasOne(Question::class);
     }
 }

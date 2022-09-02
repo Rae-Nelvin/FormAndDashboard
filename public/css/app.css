@@ -1603,6 +1603,9 @@ input:checked + .toggle-bg {
 .w-\[73px\] {
   width: 73px;
 }
+.w-\[103px\] {
+  width: 103px;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -1614,6 +1617,9 @@ input:checked + .toggle-bg {
 }
 .max-w-7xl {
   max-width: 80rem;
+}
+.max-w-\[520px\] {
+  max-width: 520px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1961,6 +1967,9 @@ input:checked + .toggle-bg {
   --tw-border-opacity: 1;
   border-color: rgb(28 100 242 / var(--tw-border-opacity));
 }
+.border-\[\#000\]\/20 {
+  border-color: rgb(0 0 0 / 0.2);
+}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2082,6 +2091,14 @@ input:checked + .toggle-bg {
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-\[\#004588\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 69 136 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -2273,6 +2290,10 @@ input:checked + .toggle-bg {
   padding-left: 101px;
   padding-right: 101px;
 }
+.py-\[2px\] {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 .pt-4 {
   padding-top: 1rem;
 }
@@ -2299,6 +2320,12 @@ input:checked + .toggle-bg {
 }
 .pb-1 {
   padding-bottom: 0.25rem;
+}
+.pt-10 {
+  padding-top: 2.5rem;
+}
+.pb-12 {
+  padding-bottom: 3rem;
 }
 .text-left {
   text-align: left;
@@ -2544,6 +2571,13 @@ input:checked + .toggle-bg {
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
+}
+.text-\[\#004588\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 69 136 / var(--tw-text-opacity));
+}
+.text-\[\#004588\]\/50 {
+  color: rgb(0 69 136 / 0.5);
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -5844,6 +5878,10 @@ body {
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.hover\:bg-\[\#0d3a66\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 58 102 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;

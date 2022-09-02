@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class QuestionSection extends Model
 {
@@ -17,6 +18,16 @@ class QuestionSection extends Model
      */
     protected $fillable = [
         'groupQuestionID',
-        'name',
+        'name'
     ];
+
+    /**
+     * The questionGroup that belong to the QuestionSection
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function questionGroup(): BelongsToMany
+    {
+        return $this->belongsToMany(QuestionGroup::class);
+    }
 }

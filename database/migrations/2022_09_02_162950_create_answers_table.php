@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('answerPackageID');
+            $table->foreign('answerPackageID')->references('id')->on('answer_packages')->onDelete('cascade');
             $table->unsignedBigInteger('questionSectionID');
+            $table->foreign('questionSectionID')->references('id')->on('question_sections')->onDelete('cascade');
             $table->unsignedBigInteger('questionSubSectionID');
-            $table->unsignedBigInteger('questionID');
+            $table->foreign('questionSubSectionID')->references('id')->on('question_sub_sections')->onDelete('cascade');
             $table->string('answer');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -34,4 +34,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('answers');
     }
-};
+}

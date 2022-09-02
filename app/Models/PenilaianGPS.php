@@ -23,11 +23,11 @@ class PenilaianGPS extends Model
     ];
 
     /**
-     * Get the PenilaianGPA associated with the PenilaianGPS
+     * Get the penilaianGPA that owns the PenilaianGPS
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function PenilaianGPA(): BelongsTo
+    public function penilaianGPA(): BelongsTo
     {
         return $this->belongsTo(PenilaianGPA::class);
     }

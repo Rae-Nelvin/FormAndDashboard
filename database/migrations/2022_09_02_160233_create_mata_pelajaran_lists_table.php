@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateMataPelajaranListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mengajar_lists', function (Blueprint $table) {
+        Schema::create('mata_pelajaran_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('mengajarName');
+            $table->string('name');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mengajar_lists');
+        Schema::dropIfExists('mata_pelajaran_lists');
     }
-};
+}

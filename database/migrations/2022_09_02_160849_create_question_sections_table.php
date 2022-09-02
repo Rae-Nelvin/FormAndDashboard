@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateQuestionSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jabatans', function (Blueprint $table) {
+        Schema::create('question_sections', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('jabatanListID');
+            $table->unsignedBigInteger('groupQuestionID');
+            $table->foreign('groupQuestionID')->references('id')->on('question_groups')->onDelete('cascade');
+            $table->string('name');
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jabatans');
+        Schema::dropIfExists('question_sections');
     }
-};
+}

@@ -22,6 +22,7 @@ class CreateRekapanEDPSTable extends Migration
             $table->unsignedBigInteger('questionSubSectionID');
             $table->foreign('questionSubSectionID')->references('id')->on('question_sub_sections')->onDelete('cascade');
             $table->double('average');
+            $table->timestamps();
         });
     }
 

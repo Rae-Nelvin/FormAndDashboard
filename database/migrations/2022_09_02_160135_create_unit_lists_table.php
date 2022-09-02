@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateUnitListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mengajars', function (Blueprint $table) {
+        Schema::create('unit_lists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('mengajarListID');
+            $table->string('name');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mengajars');
+        Schema::dropIfExists('unit_lists');
     }
-};
+}

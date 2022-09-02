@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RekapanEDP extends Model
 {
-    use HasFactory, SoftDeletes;
-    public $timestamps = false;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -25,21 +24,31 @@ class RekapanEDP extends Model
     ];
 
     /**
-     * Get all of the section for the RekapanEDP
+     * Get the user that owns the RekapanEDP
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get all of the questionSection for the RekapanEDP
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function section(): HasMany
+    public function questionSection(): HasMany
     {
         return $this->hasMany(QuestionSection::class);
     }
 
     /**
-     * Get all of the subSection for the RekapanEDP
+     * Get all of the qusetionSubSection for the RekapanEDP
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function subSection(): HasMany
+    public function qusetionSubSection(): HasMany
     {
         return $this->hasMany(QuestionSubSection::class);
     }

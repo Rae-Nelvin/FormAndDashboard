@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreatePosisiListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('question_groups', function (Blueprint $table) {
+        Schema::create('posisi_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->boolean('status');
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_groups');
+        Schema::dropIfExists('posisi_lists');
     }
-};
+}
