@@ -270,26 +270,12 @@
                         <div>
                             <label for="Posisi" class="font-bold text-sm">Posisi</label>
                             <div class="flex flex-row flex-wrap mt-[17px]">
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
+                                @foreach ($posisi as $posisis)
+                                    <div class="flex flex-row items-center mr-6 mb-5">
+                                        <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="{{ $posisis->id }}">
+                                        <label for="{{ $posisis->name }}" class="font-bold text-sm">{{ $posisis->name }}</label>
+                                    </div> 
+                                @endforeach
                                 {{-- Button add new posisi --}}
                                 <button class="text-white text-xl align-top justify-start flex flex-col" type="button" data-modal-toggle="new-position-modal">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" class="text-[#0060FF] hover:text-[#0026ff] duration-500 transition-all ease-in-out rounded-full">
@@ -301,58 +287,36 @@
                         <div>
                             <label for="Golongan" class="font-medium text-base">Golongan</label>
                             <select name="golongan" class="flex flex-row w-full border-2 border-[#DFDFE6] rounded-lg py-2 px-4 mt-4 font-medium text-base">
-                                <option value="A">Golongan A</option>
-                                <option value="B">Golongan B</option>
-                                <option value="C">Golongan C</option>
+                                @foreach ($golongan as $golongans)
+                                    <option value="{{ $golongans->id }}">{{ $golongans->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div>
                             <label for="Unit" class="font-medium text-base">Unit</label>
                             <select name="unit" class="flex flex-row w-full border-2 border-[#DFDFE6] rounded-lg py-2 px-4 mt-4 font-medium text-base">
-                                <option value="A">Unit A</option>
-                                <option value="B">Unit B</option>
-                                <option value="C">Unit C</option>
+                                @foreach ($unit as $units)
+                                    <option value="{{ $units->id }}">{{ $units->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div>
                             <label for="Kelas" class="font-medium text-base">Kelas</label>
                             <div class="flex flex-row mt-4">
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="tidak" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">Tidak Mengajar</span>
-                                </div>
+                                @foreach ($kelas as $kelases)
+                                    <div class="flex flex-row items-center mr-4">
+                                        <input type="checkbox" name="kelas" class="rounded-sm border-[#87898E]" value="{{ $kelases->id }}">
+                                        <span class="font-normal text-base ml-2">{{ $kelases->name }}</span>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <div>
                             <label for="Mata Pelajaran/Area Kerja" class="font-medium text-base">Mata Pelajaran/Area Kerja</label>
                             <select name="mapel" class="flex flex-row w-full border-2 border-[#DFDFE6] rounded-lg py-2 px-4 mt-4 font-medium text-base">
-                                <option value="A">Unit A</option>
-                                <option value="B">Unit B</option>
-                                <option value="C">Unit C</option>
+                                @foreach ($mataPelajaran as $mataPelajarans)
+                                    <option value="{{ $mataPelajarans->id }}">{{ $mataPelajarans->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="flex flex-row space-x-[16px] justify-center w-full">
@@ -401,26 +365,12 @@
                         <div>
                             <label for="Posisi" class="font-bold text-sm">Posisi</label>
                             <div class="flex flex-row flex-wrap mt-[17px]">
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
-                                <div class="flex flex-row items-center mr-6 mb-5">
-                                    <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="">
-                                    <label for="Direktur 1" class="font-bold text-sm">Direktur 1</label>
-                                </div>
+                                @foreach ($posisi as $posisis)
+                                    <div class="flex flex-row items-center mr-6 mb-5">
+                                        <input type="radio" name="posisi" class="border-[#0060FF] mr-2" value="{{ $posisis->id }}">
+                                        <label for="{{ $posisis->name }}" class="font-bold text-sm">{{ $posisis->name }}</label>
+                                    </div> 
+                                @endforeach
                                 {{-- Button add new posisi --}}
                                 <button class="text-white text-xl align-top justify-start flex flex-col" type="button" data-modal-toggle="new-position-modal">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" class="text-[#0060FF] hover:text-[#0026ff] duration-500 transition-all ease-in-out rounded-full">
@@ -432,58 +382,36 @@
                         <div>
                             <label for="Golongan" class="font-medium text-base">Golongan</label>
                             <select name="golongan" class="flex flex-row w-full border-2 border-[#DFDFE6] rounded-lg py-2 px-4 mt-4 font-medium text-base">
-                                <option value="A">Golongan A</option>
-                                <option value="B">Golongan B</option>
-                                <option value="C">Golongan C</option>
+                                @foreach ($golongan as $golongans)
+                                    <option value="{{ $golongans->id }}">{{ $golongans->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div>
                             <label for="Unit" class="font-medium text-base">Unit</label>
                             <select name="unit" class="flex flex-row w-full border-2 border-[#DFDFE6] rounded-lg py-2 px-4 mt-4 font-medium text-base">
-                                <option value="A">Unit A</option>
-                                <option value="B">Unit B</option>
-                                <option value="C">Unit C</option>
+                                @foreach ($unit as $units)
+                                    <option value="{{ $units->id }}">{{ $units->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div>
                             <label for="Kelas" class="font-medium text-base">Kelas</label>
                             <div class="flex flex-row mt-4">
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="7" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">7</span>
-                                </div>
-                                <div class="flex flex-row items-center mr-4">
-                                    <input type="checkbox" name="tidak" class="rounded-sm border-[#87898E]">
-                                    <span class="font-normal text-base ml-2">Tidak Mengajar</span>
-                                </div>
+                                @foreach ($kelas as $kelases)
+                                    <div class="flex flex-row items-center mr-4">
+                                        <input type="checkbox" name="kelas" class="rounded-sm border-[#87898E]" value="{{ $kelases->id }}">
+                                        <span class="font-normal text-base ml-2">{{ $kelases->name }}</span>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <div>
                             <label for="Mata Pelajaran/Area Kerja" class="font-medium text-base">Mata Pelajaran/Area Kerja</label>
                             <select name="mapel" class="flex flex-row w-full border-2 border-[#DFDFE6] rounded-lg py-2 px-4 mt-4 font-medium text-base">
-                                <option value="A">Unit A</option>
-                                <option value="B">Unit B</option>
-                                <option value="C">Unit C</option>
+                                @foreach ($mataPelajaran as $mataPelajarans)
+                                    <option value="{{ $mataPelajarans->id }}">{{ $mataPelajarans->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="flex flex-row space-x-[16px] justify-center w-full">

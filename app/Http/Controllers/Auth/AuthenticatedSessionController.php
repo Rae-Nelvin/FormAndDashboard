@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -30,9 +31,20 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        $posisi = DB::table('users')
+            ->join('user_details', 'user_details.userID', '=', 'users.id')
+            ->where('users.email', '=', $request->email)->select('user_details.posisiID')
+            ->first();
+
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if ((int)$posisi == 1 || (int)$posisi == 2) {
+            return redirect()->intended(RouteServiceProvider::ADMINHOME);
+        } else if ((int)$posisi == 3) {
+            return redirect()->intended(RouteServiceProvider::STAFFHOME);
+        } else {
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
     }
 
     /**

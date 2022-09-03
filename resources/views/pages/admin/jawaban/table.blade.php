@@ -97,7 +97,7 @@
                     <td class="py-4 px-6">
                         <div class="flex flex-row space-x-4">
                             <a href="#">
-                                <h1 class="text-[#0060FF] text-base font-semibold underline">View Jawaban</h1>
+                                <h1 class="text-[#0060FF] text-base font-light underline">View Jawaban</h1>
                             </a>
                             <button type="button" data-modal-toggle="popup-modal-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="text-[#DE5462] hover:text-[#f1838e] transition-all duration-500 ease-in-out">
@@ -132,7 +132,7 @@
                     <td class="py-4 px-6">
                         <div class="flex flex-row space-x-4">
                             <a href="#">
-                                <h1 class="text-[#0060FF] text-base font-semibold underline">View Jawaban</h1>
+                                <h1 class="text-[#0060FF] text-base font-light underline">View Jawaban</h1>
                             </a>
                             <button type="button" data-modal-toggle="popup-modal-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="text-[#DE5462] hover:text-[#f1838e] transition-all duration-500 ease-in-out">

@@ -50,7 +50,7 @@
                         Pater Winandoko
                     </td>
                     <td class="py-4 px-6">
-                        <a href="#">
+                        <a href="{{ route('renderAssignDetail') }}">
                             <h1 class="text-[#0060FF] text-base font-light underline">View More</h1>
                         </a>
                     </td>
@@ -69,7 +69,7 @@
                         Pater Hendra
                     </td>
                     <td class="py-4 px-6">
-                        <a href="#">
+                        <a href="{{ route('renderAssignDetail') }}">
                             <h1 class="text-[#0060FF] text-base font-light underline">View More</h1>
                         </a>
                     </td>
@@ -88,7 +88,7 @@
                         Pater Gandi
                     </td>
                     <td class="py-4 px-6">
-                        <a href="#">
+                        <a href="{{ route('renderAssignDetail') }}">
                             <h1 class="text-[#0060FF] text-base font-light underline">View More</h1>
                         </a>
                     </td>

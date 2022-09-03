@@ -336,9 +336,9 @@
                         <div>
                             <label for="Jabatan" class="font-medium text-base">Jabatan</label>
                             <select name="jabatan" class="flex flex-row w-full border-2 border-[#DFDFE6] rounded-lg py-2 px-4 mt-4 font-medium text-base">
-                                <option value="A">Direktur</option>
-                                <option value="B">Kepala Divisi</option>
-                                <option value="C">Wakil Direktur</option>
+                                @foreach ($posisi as $posisis)
+                                    <option value="{{ $posisis->id }}">{{ $posisis->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div>

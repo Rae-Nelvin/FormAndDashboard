@@ -18,7 +18,7 @@
         </div>
         <h1 class="font-bold text-[32px] mt-6">Selamat Datang di<br>
         <span class="text-[#004588]">Kolese Kanisius</span></h1>
-        <form action="#" action="POST" class="flex flex-col mt-7 w-full">
+        <form action="{{ route('login') }}" method="POST" class="flex flex-col mt-7 w-full">
             @csrf
             <label for="Email" class="font-semibold text-base">Alamat Email</label>
             <div class="flex flex-row mt-2 border-[#000]/20 border-2 rounded-lg w-full py-[2px] px-2 items-center">
@@ -26,21 +26,27 @@
                     <path fill="currentColor" d="M32.33 6a2 2 0 0 0-.41 0h-28a2 2 0 0 0-.53.08l14.45 14.39Z" class="clr-i-solid clr-i-solid-path-1"/>
                     <path fill="currentColor" d="m33.81 7.39l-14.56 14.5a2 2 0 0 1-2.82 0L2 7.5a2 2 0 0 0-.07.5v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V8a2 2 0 0 0-.12-.61ZM5.3 28H3.91v-1.43l7.27-7.21l1.41 1.41Zm26.61 0h-1.4l-7.29-7.23l1.41-1.41l7.27 7.21Z" class="clr-i-solid clr-i-solid-path-2"/><path fill="none" d="M0 0h36v36H0z"/>
                 </svg>
-                <input type="email" name="email" placeholder="Masukan email Anda" class="border-0 ring-0 focus:ring-0 active:ring-0 font-normal text-base">
+                <input type="email" name="email" placeholder="Masukan email Anda" class="active:bg-white focus:bg-white w-full border-0 ring-0 focus:ring-0 active:ring-0 font-normal text-base">
             </div>
+            @if($errors->first('email'))
+                <span class="text-xs text-red-500 font-light">Email atau password yang anda masukkan salah</span>
+            @endif
             <label for="Email" class="font-semibold text-base mt-4">Password</label>
             <div class="flex flex-row mt-2 border-[#000]/20 border-2 rounded-lg w-full py-[2px] px-2 items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="text-[#004588]/50 mr-2">
                     <path fill="currentColor" d="M12 2C9.243 2 7 4.243 7 7v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7c0-2.757-2.243-5-5-5zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9V7zm4 10.723V20h-2v-2.277a1.993 1.993 0 0 1 .567-3.677A2.001 2.001 0 0 1 14 16a1.99 1.99 0 0 1-1 1.723z"/>
                 </svg>
-                <input type="email" name="email" placeholder="Masukan password Anda" class="border-0 ring-0 focus:ring-0 active:ring-0 font-normal text-base">
+                <input type="password" name="password" placeholder="Masukan password Anda" class="active:bg-white focus:bg-white w-full border-0 ring-0 focus:ring-0 active:ring-0 font-normal text-base">
             </div>
+            @if($errors->first('email'))
+                <span class="text-xs text-red-500 font-light">Email atau password yang anda masukkan salah</span>
+            @endif
             <div class="flex flex-row items-center mt-4">
-                <input type="checkbox" name="remember" value="1" class="rounded-sm">
+                <input type="checkbox" name="remember" class="rounded-sm">
                 <span class="font-normal text-xs ml-2">Remember Me</span>
             </div>
             <div class="flex justify-center items-center pt-10 pb-12">
-                <button class="bg-[#004588] py-[6px] px-5 font-bold text-white text-base hover:bg-[#0d3a66] transition-all duration-500 ease-in-out w-[103px] rounded-lg">Masuk</button>
+                <button type="submit" class="bg-[#004588] py-[6px] px-5 font-bold text-white text-base hover:bg-[#0d3a66] transition-all duration-500 ease-in-out w-[103px] rounded-lg">Masuk</button>
             </div>
         </form>
     </div>

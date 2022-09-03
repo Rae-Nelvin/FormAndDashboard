@@ -19,11 +19,7 @@ use App\Http\Controllers\User\KuesionerController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.welcome');
-});
-
-Route::prefix('user/')->name('user.')->group(function () {
+Route::middleware(['isGuru'])->prefix('user/')->name('user.')->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'render'])
         ->name('renderDashboard');
     Route::get('/package', function () {
@@ -34,7 +30,7 @@ Route::prefix('user/')->name('user.')->group(function () {
     });
 });
 
-Route::prefix('admin/')->name('admin.')->group(function () {
+Route::middleware(['isAdmin'])->prefix('admin/')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'renderDashboard'])
         ->name('renderDashboard');
     Route::post('/newGroup', [AdminDashboardController::class, 'createGroup'])
@@ -49,21 +45,21 @@ Route::prefix('admin/')->name('admin.')->group(function () {
         ->name('renderAssign');
 });
 
-Route::prefix('jawaban/')->group(function () {
+Route::middleware(['isAdmin'])->prefix('jawaban/')->group(function () {
     Route::get('/sectionChart', [JawabanController::class, 'renderSectionChart'])
         ->name('renderSectionChart');
     Route::get('/sectionTable', [JawabanController::class, 'renderSectionTable'])
         ->name('renderSectionTable');
 });
 
-Route::prefix('assign/')->group(function () {
+Route::middleware(['isAdmin'])->prefix('assign/')->group(function () {
     Route::get('/table', [AssignController::class, 'renderAssignTable'])
         ->name('renderAssignTable');
     Route::get('/detail', [AssignController::class, 'renderAssignDetail'])
         ->name('renderAssignDetail');
 });
 
-Route::prefix('package/section')->group(function () {
+Route::middleware(['isAdmin'])->prefix('package/section')->group(function () {
     Route::get('/{id}', [QuestionController::class, 'renderSection'])
         ->name('renderSection');
     Route::post('/newSection', [QuestionController::class, 'newSection'])

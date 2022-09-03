@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             QuestionGroupSeeder::class,
             EDPQuestionSeeder::class,
+            AccountSeeder::class,
             // PKBQuestionSeeder::class,
         ]);
     }

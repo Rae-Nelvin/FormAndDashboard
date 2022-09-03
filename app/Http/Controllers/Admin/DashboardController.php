@@ -3,17 +3,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\GolonganList;
+use App\Models\KelasList;
+use App\Models\MataPelajaranList;
+use App\Models\PosisiList;
 use App\Models\QuestionGroup;
+use App\Models\UnitList;
+use App\Models\UserDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
 
     public function renderDashboard()
     {
+        $user = Auth::user();
+        $userDetail = UserDetail::where('userID', '=', $user->id)->first();
         $data = QuestionGroup::all();
 
-        return view('pages.admin.dashboard', compact('data'));
+        return view('pages.admin.dashboard', compact('data', 'user', 'userDetail'));
     }
 
     public function createGroup(Request $request)
@@ -52,7 +61,13 @@ class DashboardController extends Controller
      */
     public function renderPengguna()
     {
-        return view('pages.admin.pengguna');
+        $golongan = GolonganList::all();
+        $kelas = KelasList::all();
+        $mataPelajaran = MataPelajaranList::all();
+        $posisi = PosisiList::all();
+        $unit = UnitList::all();
+
+        return view('pages.admin.pengguna', compact('golongan', 'kelas', 'mataPelajaran', 'posisi', 'unit'));
     }
 
     /**

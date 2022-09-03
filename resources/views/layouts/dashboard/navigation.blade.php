@@ -36,10 +36,14 @@
         
         <div class="flex items-center text-sm font-medium rounded-lg md:mr-0 focus:ring-4 bg-[#F2F8FF] py-[6px] px-[17px] ml-[46px]">
           <span class="sr-only">Open user menu</span>
-          <img class="mr-2 w-[45px] h-[45px] rounded-full" src="{{ asset('DashboardIcon/img/user4.png') }}" alt="user photo">
+          @if(Auth::user()->avatar)
+            <img src="" alt="">
+          @else
+            <img class="mr-2 w-[45px] h-[45px] rounded-full" src="{{ asset('DashboardIcon/img/user4.png') }}" alt="user photo">
+          @endif
           <div class="flex flex-col items-start ml-[9px]">
-            <h1 class="font-semibold text-[13px] text-[#1F1F1F]">Andy Warhol</h1>
-            <h2 class="font-medium text-[11px] text-[#5E6E78]">andywarhol@mail.com</h2>
+            <h1 class="font-semibold text-[13px] text-[#1F1F1F]">{{ Auth::user()->name }}</h1>
+            <h2 class="font-medium text-[11px] text-[#5E6E78]">{{ Auth::user()->email }}</h2>
           </div>
           <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" type="button">
             <img src="{{ asset('DashboardIcon/img/triple-dots.svg') }}" alt="triple-dots" class="w-5 h-4 ml-[42px]">
@@ -60,7 +64,7 @@
             </li>
           </ul>
           <div class="py-1">
-            <a href="#" class="block py-2 px-4 text-sm text-[#FF5959] hover:bg-[#F2F8FF]">Sign out</a>
+            <button data-modal-toggle="popup-modal-logout" class="w-full block py-2 px-4 text-sm text-left text-[#FF5959] hover:bg-[#F2F8FF]">Sign out</button>
           </div>
         </div>
 
@@ -73,3 +77,29 @@
 
   </div>
 <!-- end navbar -->
+
+<!-- Start of Logout Modal -->
+<div id="popup-modal-logout" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
+  <div class="relative p-4 w-[617px] h-full md:h-auto">
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal-logout">
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              <span class="sr-only">Close modal</span>
+          </button>
+          <div class="py-6 px-8 text-center items-center flex flex-col">
+              <img src="{{ asset('DashboardIcon/img/logout-more-logo.png') }}" alt="logout-logo" class="w-20 h-20">
+              <h3 class="mb-2 text-2xl font-medium text-[#23262F] mt-4">Apakah anda yakin ingin keluar?</h3>
+              <div class="flex flex-row mt-8 space-x-[16px]">
+                <form action="{{ route('logout') }}" method="POST">
+                  @csrf
+                    <button data-modal-toggle="popup-modal-logout" type="submit" class="text-white bg-[#E53535] hover:bg-[#ac2828] focus:ring-4 focus:outline-none focus:ring-red-300 font-normal rounded-full text-base inline-flex items-center px-[92px] py-5 text-center cursor-pointer transition-all duration-500 ease-in-out">
+                      Keluar
+                    </button>
+                  </form>
+                  <button data-modal-toggle="popup-modal-logout" type="button" class="text-[#23262F] bg-[#F1F1F1] hover:bg-[#bebebe] focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-full text-base font-normal px-[92px] py-5 focus:z-10 transition-all duration-500 ease-in-out">Batalkan</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- End of Logout Modal -->

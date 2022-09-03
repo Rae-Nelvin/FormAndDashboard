@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\GolonganList;
+use App\Models\KelasList;
+use App\Models\MataPelajaranList;
+use App\Models\PosisiList;
+use App\Models\UnitList;
 use Illuminate\Http\Request;
 
 class AssignController extends Controller
@@ -19,6 +24,8 @@ class AssignController extends Controller
 
     public function renderAssignDetail()
     {
-        return view('pages.admin.assign.detail');
+        $posisi = PosisiList::all();
+
+        return view('pages.admin.assign.detail', compact('posisi'));
     }
 }

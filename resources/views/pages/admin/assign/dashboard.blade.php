@@ -5,7 +5,7 @@
     <h1 class="font-semibold text-[32px]">Assign People</h1>
     <div class="flex flex-col flex-nowrap mt-16 w-full space-y-[30px]">
         <div class="flex flex-row justify-between items-center bg-white w-full py-[22px] px-[23px] rounded-lg cursor-pointer hover:bg-[#D5E6FB] hover:text-[#0060FF] transition-all ease-in-out duration-500">
-            <a href="#">
+            <a href="{{ route('renderAssignTable') }}">
                 <h1 class="font-medium text-xl uppercase">Sasaran Kerja Pegawai</h1>
             </a>
             <div class="flex flex-row space-x-4">
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="flex flex-row justify-between items-center bg-white w-full py-[22px] px-[23px] rounded-lg cursor-pointer hover:bg-[#D5E6FB] hover:text-[#0060FF] transition-all ease-in-out duration-500">
-            <a href="#">
+            <a href="{{ route('renderAssignTable') }}">
                 <h1 class="font-medium text-xl uppercase">Perilaku Kerja Pegawai</h1>
             </a>
             <div class="flex flex-row space-x-4">
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="flex flex-row justify-between items-center bg-white w-full py-[22px] px-[23px] rounded-lg cursor-pointer hover:bg-[#D5E6FB] hover:text-[#0060FF] transition-all ease-in-out duration-500">
-            <a href="#">
+            <a href="{{ route('renderAssignTable') }}">
                 <h1 class="font-medium text-xl uppercase">Peningkatan Kompetensi Berkelanjutan</h1>
             </a>
             <div class="flex flex-row space-x-4">
