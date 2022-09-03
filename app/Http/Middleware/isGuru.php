@@ -17,7 +17,8 @@ class isGuru
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!(session() && Auth::user() && Auth::user()->roleID == 3)) {
+
+        if (!(session() && Auth::user() && Auth::user()->userDetail->posisiID == 3)) {
             return redirect('/');
         }
 

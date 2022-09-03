@@ -25,9 +25,10 @@ Route::middleware(['isGuru'])->prefix('user/')->name('user.')->group(function ()
     Route::get('/package', function () {
         return view('pages.user.kuesioner.dashboard');
     });
-    Route::get('/package/kuesioner', function () {
-        return view('pages.user.kuesioner.kuesioner');
-    });
+    Route::get('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'renderKuesioner'])
+        ->name('renderKuesioner');
+    Route::post('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesioner']);
+    Route::post('/package/kuesioner/final/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerFinal']);
 });
 
 Route::middleware(['isAdmin'])->prefix('admin/')->name('admin.')->group(function () {

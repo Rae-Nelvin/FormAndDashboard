@@ -33,14 +33,15 @@ class AuthenticatedSessionController extends Controller
 
         $posisi = DB::table('users')
             ->join('user_details', 'user_details.userID', '=', 'users.id')
-            ->where('users.email', '=', $request->email)->select('user_details.posisiID')
+            ->where('users.email', '=', $request->email)
+            ->select('user_details.posisiID')
             ->first();
 
         $request->session()->regenerate();
 
-        if ((int)$posisi == 1 || (int)$posisi == 2) {
+        if ($posisi->posisiID == '1' || $posisi->posisiID == '2') {
             return redirect()->intended(RouteServiceProvider::ADMINHOME);
-        } else if ((int)$posisi == 3) {
+        } else if ($posisi->posisiID == 3) {
             return redirect()->intended(RouteServiceProvider::STAFFHOME);
         } else {
             return redirect()->intended(RouteServiceProvider::HOME);

@@ -1,6 +1,6 @@
-@extends('layouts.dashboard.user-start')
+@extends('layouts.dashboard.start')
 
-@section('userContent')
+@section('content')
 
     <div class="h-full w-full py-[71px] px-[33px] flex flex-col flex-nowrap items-start">
         <h1 class="font-semibold text-[32px]">Evaluasi Diri Pendidik</h1>

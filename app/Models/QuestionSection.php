@@ -20,14 +20,4 @@ class QuestionSection extends Model
         'groupQuestionID',
         'name'
     ];
-
-    /**
-     * The questionGroup that belong to the QuestionSection
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function questionGroup(): BelongsToMany
-    {
-        return $this->belongsToMany(QuestionGroup::class);
-    }
 }

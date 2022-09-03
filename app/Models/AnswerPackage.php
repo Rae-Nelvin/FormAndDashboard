@@ -40,6 +40,6 @@ class AnswerPackage extends Model
      */
     public function questionGroup(): HasOne
     {
-        return $this->hasOne(QuestionGroup::class);
+        return $this->hasOne(QuestionGroup::class, 'id', 'questionGroupID');
     }
 }

@@ -17,7 +17,8 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!(session() && Auth::user() && (Auth::user()->posisiID == 1 || Auth::user()->posisiID == 2))) {
+
+        if (!(session() && Auth::user() && (Auth::user()->userDetail->posisiID == 1 || Auth::user()->userDetail->posisiID == 2))) {
             return redirect('/');
         }
 
