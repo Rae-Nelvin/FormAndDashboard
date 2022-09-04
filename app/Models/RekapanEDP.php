@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class RekapanEDP extends Model
 {
@@ -39,18 +40,18 @@ class RekapanEDP extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function questionSection(): HasMany
+    public function section(): HasOne
     {
-        return $this->hasMany(QuestionSection::class);
+        return $this->hasOne(QuestionSection::class);
     }
 
     /**
-     * Get all of the qusetionSubSection for the RekapanEDP
+     * Get the subsection associated with the RekapanEDP
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function qusetionSubSection(): HasMany
+    public function subsection(): HasOne
     {
-        return $this->hasMany(QuestionSubSection::class);
+        return $this->hasOne(QuestionSubSection::class, 'questionSubSectionID', 'question_sub_sections.id');
     }
 }

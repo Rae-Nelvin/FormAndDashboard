@@ -14,7 +14,7 @@
                     <form class="w-full flex flex-col space-y-6" id="kuesioner-form" action="/user/package/kuesioner/final/{{ $title->id }}/{{ $title->section->id }}/{{ $subSection->id + 1}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @foreach ($question as $questions)
-                            <div class="flex flex-col justify-between bg-white py-[25px] px-[22px] rounded-lg ">
+                            <div class="flex flex-col justify-between bg-white py-[25px] px-[22px] rounded-lg">
                                 <p class="font-medium text-xl">{{ $loop->iteration }}. {{ $questions->question }}</p>
                                 <input type="hidden" name="questionID[]" value="{{ $questions->id }}">
                                 @if ($questions->questionType == 'number')
