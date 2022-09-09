@@ -39,7 +39,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if ($posisi->posisiID == 1 || $posisi->posisiID == 2) {
+        if ($posisi->posisiID == '1' || $posisi->posisiID == '2') {
             return redirect()->intended(RouteServiceProvider::ADMINHOME);
         } else if ($posisi->posisiID == 3) {
             return redirect()->intended(RouteServiceProvider::STAFFHOME);

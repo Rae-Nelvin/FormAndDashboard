@@ -29,7 +29,6 @@ Route::middleware(['isGuru'])->prefix('user/')->name('user.')->group(function ()
         ->name('renderKuesioner');
     Route::post('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesioner']);
     Route::post('/package/kuesioner/final/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerFinal']);
-    Route::get('/rekapanEDP', [KuesionerController::class, 'renderRekapanEDP'])->name('renderRekapanEDP');
 });
 
 Route::middleware(['isAdmin'])->prefix('admin/')->name('admin.')->group(function () {
