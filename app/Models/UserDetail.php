@@ -45,7 +45,7 @@ class UserDetail extends Model
      */
     public function posisi(): HasOne
     {
-        return $this->hasOne(PosisiList::class);
+        return $this->hasOne(PosisiList::class, 'id', 'posisiID');
     }
 
     /**
@@ -55,7 +55,7 @@ class UserDetail extends Model
      */
     public function golongan(): HasOne
     {
-        return $this->hasOne(GolonganList::class);
+        return $this->hasOne(GolonganList::class, 'id', 'golonganID');
     }
 
     /**
@@ -65,17 +65,17 @@ class UserDetail extends Model
      */
     public function unit(): HasOne
     {
-        return $this->hasOne(UnitList::class);
+        return $this->hasOne(UnitList::class, 'id', 'unitID');
     }
 
     /**
-     * Get all of the kelas for the UserDetail
+     * Get the kelas associated with the UserDetail
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function kelas(): HasMany
+    public function kelas(): HasOne
     {
-        return $this->hasMany(KelasList::class);
+        return $this->hasOne(KelasList::class, 'id', 'kelasID');
     }
 
     /**
@@ -85,6 +85,6 @@ class UserDetail extends Model
      */
     public function mataPelajaran(): HasOne
     {
-        return $this->hasOne(MataPelajaranList::class);
+        return $this->hasOne(MataPelajaranList::class, 'id', 'mataPelajaranID');
     }
 }

@@ -21,6 +21,7 @@ class Answer extends Model
         'answerPackageID',
         'questionSectionID',
         'questionSubSectionID',
+        'questionID',
         'answer'
     ];
 

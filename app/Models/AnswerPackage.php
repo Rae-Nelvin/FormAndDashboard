@@ -20,17 +20,28 @@ class AnswerPackage extends Model
         'dinilaiID',
         'penilaiID',
         'questionGroupID',
-        'isDone'
+        'isDone',
+        'periodeID'
     ];
 
     /**
-     * Get all of the user for the AnswerPackage
+     * Get the dinilai associated with the AnswerPackage
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user(): HasMany
+    public function dinilai(): HasOne
     {
-        return $this->hasMany(User::class);
+        return $this->hasOne(User::class, 'id', 'dinilaiID');
+    }
+
+    /**
+     * Get the penilai associated with the AnswerPackage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function penilai(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'penilaiID');
     }
 
     /**
@@ -41,5 +52,15 @@ class AnswerPackage extends Model
     public function questionGroup(): HasOne
     {
         return $this->hasOne(QuestionGroup::class, 'id', 'questionGroupID');
+    }
+
+    /**
+     * Get the answer associated with the AnswerPackage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function answer(): HasOne
+    {
+        return $this->hasOne(Answer::class, 'answerPackageID', 'id');
     }
 }

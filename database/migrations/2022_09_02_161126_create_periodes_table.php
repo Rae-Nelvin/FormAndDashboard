@@ -13,7 +13,7 @@ class CreatePeriodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('periodes', function (Blueprint $table) {
+        Schema::create('periode_lists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
         });

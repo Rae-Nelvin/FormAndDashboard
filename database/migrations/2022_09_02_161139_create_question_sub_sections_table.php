@@ -15,6 +15,8 @@ class CreateQuestionSubSectionsTable extends Migration
     {
         Schema::create('question_sub_sections', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('groupQuestionID');
+            $table->foreign('groupQuestionID')->references('id')->on('question_groups')->onDelete('cascade');
             $table->unsignedBigInteger('sectionQuestionID');
             $table->foreign('sectionQuestionID')->references('id')->on('question_sections')->onDelete('cascade');
             $table->string('name');

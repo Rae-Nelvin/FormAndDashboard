@@ -21,6 +21,8 @@ class CreateAnswersTable extends Migration
             $table->foreign('questionSectionID')->references('id')->on('question_sections')->onDelete('cascade');
             $table->unsignedBigInteger('questionSubSectionID');
             $table->foreign('questionSubSectionID')->references('id')->on('question_sub_sections')->onDelete('cascade');
+            $table->unsignedBigInteger('questionID');
+            $table->foreign('questionID')->references('id')->on('questions')->onDelete('cascade');
             $table->string('answer');
         });
     }

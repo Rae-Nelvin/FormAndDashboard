@@ -20,6 +20,7 @@ class Question extends Model
         'sectionID',
         'subsectionID',
         'question',
+        'questionType',
         'minimumScore',
         'maximumScore'
     ];

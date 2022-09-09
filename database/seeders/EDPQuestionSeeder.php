@@ -24,6 +24,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Penguasaan dan Penerapan Paradigma Pedagogi Ignatian dalam mendidik siswa'
         ]);
 
@@ -149,6 +150,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Mampu mengembangkan materi pembelajaran secara kreatif'
         ]);
 
@@ -238,6 +240,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Mampu mengembangkan kurikulum yang terkait dengan bidang pengembangan yang diampu'
         ]);
 
@@ -291,6 +294,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Mampu menyelenggarakan kegiatan pengembangan yang mendidik'
         ]);
 
@@ -428,6 +432,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Memfasilitasi pengembangan potensi peserta didik untuk mengaktualisasikan berbagai potensi yang dimiliki.'
         ]);
 
@@ -517,6 +522,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Berkomunikasi secara efektif, empatik, dan santun dengan peserta didik.'
         ]);
 
@@ -594,6 +600,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Memanfaatkan TIK (Teknologi Informasi dan Komunikasi) untuk kepentingan penyelenggaraan kegiatan pengembangan yang mendidik.'
         ]);
 
@@ -647,6 +654,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Melakukan penilaian dan evaluasi proses dan hasil belajar, memanfaatkan hasil penilaian dan evaluasi untuk kepentingan pembelajaran.'
         ]);
 
@@ -712,6 +720,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Melakukan tindakan reflektif untuk peningkatan kualitas pembelajaran melalui PKB(Peningkatan Kompetensi Berkelanjutan)'
         ]);
 
@@ -777,6 +786,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Membuat Perencanaan Pembelajaran'
         ]);
 
@@ -830,6 +840,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Pelaksanaan Kegiatan Pembelajaran yang Aktif, Efektif, dan Menyenangkan dengan dinamika PPI'
         ]);
 
@@ -967,6 +978,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 1,
+            'groupQuestionID' => 1,
             'name' => 'Penilaian Pembelajaran'
         ]);
 
@@ -1013,6 +1025,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Bertindak sesuai dengan norma agama, hukum, sosial, dan kebudayaan Nasional Indonesia.'
         ]);
 
@@ -1078,6 +1091,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Menampilkan diri sebagai pribadi yang matang ( jujur, berkarakter baik, menjadi teladan bagi peserta didik dan masyarakat)'
         ]);
 
@@ -1167,6 +1181,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Menampilkan diri sebagai pribadi yang mantap, stabil, dewasa, arif, dan berwibawa.'
         ]);
 
@@ -1232,6 +1247,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Menunjukkan etos kerja, tanggung jawab yang tinggi, rasa bangga menjadi Pendidik, dan rasa percaya diri (Etos kerja tinggi)'
         ]);
 
@@ -1333,6 +1349,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Menjunjung tinggi kode etik profesi Pendidik dan PUK yayasan '
         ]);
 
@@ -1434,6 +1451,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Bertindak objektif serta tidak diskriminatif karena pertimbangan jenis kelamin, agama, ras, kondisi fisik, latar belakang keluarga, dan status sosial ekonomi (memartabatkan).'
         ]);
 
@@ -1487,6 +1505,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Berkomunikasi secara efektif, empatik, dan santun dengan sesama pendidik, tenaga kependidikan, orang tua, dan masyarakat.'
         ]);
 
@@ -1576,6 +1595,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Mampu beradaptasi dengan lingkungan kerja'
         ]);
 
@@ -1629,6 +1649,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 2,
+            'groupQuestionID' => 1,
             'name' => 'Menunjukkan sikap bersedia bekerjasama dengan kolega'
         ]);
 
@@ -1687,6 +1708,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 3,
+            'groupQuestionID' => 1,
             'name' => 'Berusaha memperjuangkan kebenaran'
         ]);
 
@@ -1716,6 +1738,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 3,
+            'groupQuestionID' => 1,
             'name' => 'Berusaha terus menerus mengejar keunggulan'
         ]);
 
@@ -1769,6 +1792,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 3,
+            'groupQuestionID' => 1,
             'name' => 'Bersedia untuk melayani sesama'
         ]);
 
@@ -1810,6 +1834,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 3,
+            'groupQuestionID' => 1,
             'name' => 'Berusaha mewujudkan kasih kepada sesama'
         ]);
 
@@ -1839,6 +1864,7 @@ class EDPQuestionSeeder extends Seeder
 
         QuestionSubSection::create([
             'sectionQuestionID' => 3,
+            'groupQuestionID' => 1,
             'name' => 'Berkomitmen terhadap keadilan'
         ]);
 

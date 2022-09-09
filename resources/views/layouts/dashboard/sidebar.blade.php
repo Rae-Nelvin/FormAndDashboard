@@ -14,6 +14,8 @@
 
       <img src="{{ asset('DashboardIcon/logo-CC.svg') }}" alt="Logo-CC" class="mb-[30px]">
 
+      @if(Auth::user()->userDetail->posisiID == 3)
+
       <div class="flex flex-col space-y-2">
         <a href="{{ route('user.renderDashboard') }}" class="{{ request()->is('user/dashboard') 
         ? 'flex items-center text-lg py-[17px] px-9 rounded-lg font-medium text-[#0060FF] bg-[#D5E6FB] focus:bg-[#D5E6FB] focus:text-[#0060FF] transition ease-in-out duration-500' 
@@ -24,6 +26,8 @@
           Dashboard
         </a>
         <!-- end link -->
+      
+      @endif
 
         @if(Auth::user()->userDetail->posisiID == 1 || Auth::user()->userDetail->posisiID == 2)
 

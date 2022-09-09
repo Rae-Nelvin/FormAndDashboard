@@ -25,10 +25,11 @@ Route::middleware(['isGuru'])->prefix('user/')->name('user.')->group(function ()
     Route::get('/package', function () {
         return view('pages.user.kuesioner.dashboard');
     });
-    Route::get('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'renderKuesioner'])
+    Route::get('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'renderKuesionerEDP'])
         ->name('renderKuesioner');
-    Route::post('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesioner']);
-    Route::post('/package/kuesioner/final/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerFinal']);
+    Route::post('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerEDP']);
+    Route::post('/package/kuesioner/final/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerFinalEDP']);
+    Route::get('/rekapanEDP', [KuesionerController::class, 'renderRekapanEDP'])->name('renderRekapanEDP');
 });
 
 Route::middleware(['isAdmin'])->prefix('admin/')->name('admin.')->group(function () {

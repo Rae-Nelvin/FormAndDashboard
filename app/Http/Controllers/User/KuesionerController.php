@@ -7,11 +7,13 @@ use App\Models\Answer;
 use App\Models\AnswerPackage;
 use App\Models\Question;
 use App\Models\QuestionGroup;
+use App\Models\QuestionSection;
 use App\Models\QuestionSubSection;
 use App\Models\RekapanEDP;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class KuesionerController extends Controller
@@ -22,15 +24,24 @@ class KuesionerController extends Controller
      * @param  mixed $id
      * @return void
      */
-    public function renderKuesioner($titleID, $sectionID, $subSectionID)
+    public function renderKuesionerEDP($titleID, $sectionID, $subSectionID)
     {
         $title = QuestionGroup::where('id', '=', $titleID)->first();
+        $sectionIDnew = QuestionSubSection::where('id', '=', $subSectionID - 1)->first();
         $subSection = QuestionSubSection::where('id', '=', $subSectionID)->first();
         $question = Question::where('subSectionID', '=', $subSection->id)->get();
         $underLimit = Question::where('groupID', '=', $titleID)->select('subsectionID')->first();
         $upperLimit = Question::where('groupID', '=', $titleID)->orderBy('id', 'desc')->select('subsectionID')->first();
+        $answer = DB::table('answers')
+            ->join('answer_packages', 'answer_packages.id', '=', 'answers.answerPackageID')
+            ->where('dinilaiID', '=', Auth::user()->id)
+            ->where('isDone', '=', 0)
+            ->where('questionGroupID', '=', 1)
+            ->where('questionSubSectionID', '=', $subSectionID)
+            ->select('answers.answer', 'answers.questionID')
+            ->get();
 
-        return view('pages.user.kuesioner.kuesioner', compact('title', 'subSection', 'question', 'underLimit', 'upperLimit'));
+        return view('pages.user.kuesioner.kuesioner', compact('title', 'subSection', 'question', 'underLimit', 'upperLimit', 'answer'));
     }
 
     /**
@@ -42,19 +53,50 @@ class KuesionerController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function storeKuesioner($titleID, $sectionID, $subSectionID, Request $request)
+    public function storeKuesionerEDP($titleID, $sectionID, $subSectionID, Request $request)
     {
-        for ($i = $subSectionID - 1; $i <= $subSectionID - 1; $i++) {
-            $data[$i]['groupID'] = (int)$titleID;
-            $data[$i]['sectionID'] = (int)$sectionID;
-            $data[$i]['subSectionID'] = $subSectionID - 1;
-            $data[$i]['questionID'] = $request->questionID;
-            $data[$i]['answer'] = $request->answer;
+        $sectionIDnew = QuestionSubSection::where('id', '=', $subSectionID - 1)->first();
+        $answerPackageID = DB::table('answer_packages')
+            ->where('answer_packages.dinilaiID', '=', Auth::user()->id)
+            ->where('answer_packages.isDone', '=', 0)
+            ->where('answer_packages.periodeID', '=', 1)
+            ->where('answer_packages.questionGroupID', '=', 1)
+            ->select('answer_packages.*')
+            ->first();
+        $allData = DB::table('answers')
+            ->join('answer_packages', 'answers.answerPackageID', '=', 'answer_packages.id')
+            ->where('answer_packages.dinilaiID', '=', Auth::user()->id)
+            ->where('answer_packages.isDone', '=', 0)
+            ->where('answer_packages.periodeID', '=', 1)
+            ->where('answer_packages.questionGroupID', '=', 1)
+            ->where('answers.questionSectionID', '=', (int)$sectionIDnew->sectionQuestionID)
+            ->where('answers.questionSubSectionID', '=', $subSectionID - 1)
+            ->select('answer_packages.*', 'answers.*')
+            ->get();
+        $answer = $request->all();
+
+        if (!$allData->isEmpty()) {
+            $i = 0;
+            foreach ($allData as $items) {
+                Answer::where('id', '=', $items->id)
+                    ->update([
+                        'answer' => $answer['answer'][$i],
+                    ]);
+                $i++;
+            }
+        } else {
+            for ($i = 0; $i < count($answer['answer']); $i++) {
+                Answer::create([
+                    'answerPackageID' => $answerPackageID->id,
+                    'questionSectionID' => (int)$sectionIDnew->sectionQuestionID,
+                    'questionSubSectionID' => $subSectionID - 1,
+                    'questionID' => $answer['questionID'][$i],
+                    'answer' => $answer['answer'][$i],
+                ]);
+            }
         }
 
-        Session::push('answer', $data);
-
-        return $this->renderKuesioner($titleID, $sectionID, $subSectionID);
+        return $this->renderKuesionerEDP($titleID, $sectionID, $subSectionID);
     }
 
     /**
@@ -66,48 +108,72 @@ class KuesionerController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function storeKuesionerFinal($titleID, $sectionID, $subSectionID, Request $request)
+    public function storeKuesionerFinalEDP($titleID, $sectionID, $subSectionID, Request $request)
     {
-        for ($i = $subSectionID - 1; $i <= $subSectionID - 1; $i++) {
-            $data[$i]['groupID'] = (int)$titleID;
-            $data[$i]['sectionID'] = (int)$sectionID;
-            $data[$i]['subSectionID'] = $subSectionID - 1;
-            $data[$i]['questionID'] = $request->questionID;
-            $data[$i]['answer'] = $request->answer;
+        $sectionIDnew = QuestionSubSection::where('id', '=', $subSectionID - 1)->first();
+        $answerPackageID = DB::table('answer_packages')
+            ->where('answer_packages.dinilaiID', '=', Auth::user()->id)
+            ->where('answer_packages.isDone', '=', 0)
+            ->where('answer_packages.periodeID', '=', 1)
+            ->where('answer_packages.questionGroupID', '=', 1)
+            ->select('answer_packages.*')
+            ->first();
+        $answer = $request->all();
+
+        for ($i = 0; $i < count($answer['answer']); $i++) {
+            Answer::create([
+                'answerPackageID' => $answerPackageID->id,
+                'questionSectionID' => (int)$sectionIDnew->sectionQuestionID,
+                'questionSubSectionID' => $subSectionID - 1,
+                'questionID' => $answer['questionID'][$i],
+                'answer' => $answer['answer'][$i],
+            ]);
         }
-        $answerPackage = AnswerPackage::where('penilaiID', '=', Auth::user()->id)->first();
 
-        Session::push('answer', $data);
+        $answers = DB::table('answers')
+            ->join('answer_packages', 'answer_packages.id', '=', 'answers.answerPackageID')
+            ->where('answer_packages.questionGroupID', '=', 1)
+            ->where('dinilaiID', '=', Auth::user()->id)
+            ->where('answer_packages.isDone', '=', 0)
+            ->select('answers.*')
+            ->get();
 
-        $data = session()->get('answer');
-        // dd($data);
+        $answers = json_decode(json_encode($answers), true);
 
-        // dd(count($data[0][0 + 1]['questionID']));
+        $data = [];
 
-        for ($i = 0; $i < count($data); $i++) {
+        $questionSubSection = QuestionSubSection::where('groupQuestionID', '=', 1)->get();
+        foreach ($questionSubSection as $items) {
             $count = 0;
-            $average = 0;
-            for ($j = 0; $j < count($data[$i][$i + 1]['questionID']); $j++) {
-                $count = $count + $data[$i][$i + 1]['answer'][$j];
-                Answer::create([
-                    'answerPackageID' => $answerPackage->id,
-                    'questionSectionID' => $sectionID,
-                    'questionSubSectionID' => $i + 1,
-                    'answer' => $data[$i][$i + 1]['answer'][$j]
-                ]);
+            $subAverage = 0;
+            $question = Question::where('subsectionID', '=', $items->id)->get();
+            foreach ($question as $data) {
+                $count = $count + (int)$answers[$data->id - 1]['answer'];
             }
-            $average = $count / count($data[$i][$i + 1]['questionID']);
-
+            $subAverage = $count / count($question);
             RekapanEDP::create([
                 'userID' => Auth::user()->id,
-                'questionSectionID' => (int)$sectionID,
-                'questionSubSectionID' => $i + 1,
-                'average' => $average,
+                'questionSectionID' => $items->sectionQuestionID,
+                'questionSubSectionID' => $items->id,
+                'average' => $subAverage,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         }
 
-        dd('Good Job Leonardo Wijaya');
+        return redirect('user/rekapanEDP');
+    }
+
+    public function renderRekapanEDP()
+    {
+        $rekapan = DB::table('rekapan_e_d_p_s')
+            ->join('question_sub_sections', 'rekapan_e_d_p_s.questionSubSectionID', '=', 'question_sub_sections.id')
+            ->select('rekapan_e_d_p_s.average', 'question_sub_sections.name', 'rekapan_e_d_p_s.questionSectionID')
+            ->get();
+        $title = QuestionGroup::where('id', '=', 1)->first();
+        $section = QuestionSection::where('groupQuestionID', '=', 1)->get();
+        $subSection = QuestionSubSection::get();
+        $question = Question::where('groupID', '=', 1)->get();
+        return view('pages.user.kuesioner.rekapanEDP', compact('rekapan', 'section', 'subSection', 'question'));
     }
 }

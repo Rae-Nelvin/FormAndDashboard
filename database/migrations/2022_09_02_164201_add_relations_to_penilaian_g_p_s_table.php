@@ -15,7 +15,7 @@ class AddRelationsToPenilaianGPSTable extends Migration
     {
         Schema::table('penilaian_g_p_s', function (Blueprint $table) {
             $table->foreign('penilaianGPAID')->references('id')->on('penilaian_g_p_a_s')->onDelete('cascade');
-            $table->foreign('periodeID')->references('id')->on('periodes')->onDelete('cascade');
+            $table->foreign('periodeID')->references('id')->on('periode_lists')->onDelete('cascade');
         });
     }
 

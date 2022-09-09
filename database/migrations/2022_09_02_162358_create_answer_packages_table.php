@@ -22,6 +22,8 @@ class CreateAnswerPackagesTable extends Migration
             $table->unsignedBigInteger('questionGroupID');
             $table->foreign('questionGroupID')->references('id')->on('question_groups')->onDelete('cascade');
             $table->boolean('isDone')->default(0);
+            $table->unsignedBigInteger('periodeID');
+            $table->foreign('periodeID')->references('id')->on('periode_lists')->onDelete('cascade');
             $table->timestamps();
         });
     }

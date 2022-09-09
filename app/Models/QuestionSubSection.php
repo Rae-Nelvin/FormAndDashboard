@@ -18,6 +18,7 @@ class QuestionSubSection extends Model
      */
     protected $fillable = [
         'sectionQuestionID',
+        'groupQuestionID',
         'name'
     ];
 
