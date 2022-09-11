@@ -4,11 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Answer extends Model
+class NilaiEDP extends Model
 {
     use HasFactory;
     public $timestamps = false;
@@ -19,15 +17,14 @@ class Answer extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'answerPackageID',
+        'rekapanEDPID',
         'questionSectionID',
         'questionSubSectionID',
-        'questionID',
-        'answer'
+        'average',
     ];
 
     /**
-     * Get the section associated with the Answer
+     * Get the section associated with the NilaiEDP
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -37,22 +34,12 @@ class Answer extends Model
     }
 
     /**
-     * Get the subSection associated with the Answer
+     * Get the subSection associated with the NilaiEDP
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function subSection(): HasOne
     {
         return $this->hasOne(QuestionSubSection::class, 'id', 'questionSubSectionID');
-    }
-
-    /**
-     * Get the question associated with the Answer
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function question(): HasOne
-    {
-        return $this->hasOne(Question::class, 'id', 'questionID');
     }
 }

@@ -14,6 +14,9 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     </head>
     <body class="bg-[#f0f8ff] min-h-screen h-full flex flex-row flex-nowrap w-full">
 

@@ -63,4 +63,14 @@ class AnswerPackage extends Model
     {
         return $this->hasOne(Answer::class, 'answerPackageID', 'id');
     }
+
+    /**
+     * Get the rekapanEDP associated with the AnswerPackage
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function rekapanEDP(): HasOne
+    {
+        return $this->hasOne(RekapanEDP::class, 'paketJawabanID', 'id');
+    }
 }

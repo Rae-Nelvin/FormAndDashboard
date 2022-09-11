@@ -20,39 +20,16 @@ class RekapanEDP extends Model
      */
     protected $fillable = [
         'userID',
-        'questionSectionID',
-        'questionSubSectionID',
-        'periodeID',
-        'average'
+        'paketJawabanID',
     ];
 
     /**
-     * Get the user that owns the RekapanEDP
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get all of the questionSection for the RekapanEDP
+     * Get all of the nilaiEDP for the RekapanEDP
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function section(): HasOne
+    public function nilaiEDP(): HasMany
     {
-        return $this->hasOne(QuestionSection::class);
-    }
-
-    /**
-     * Get the subsection associated with the RekapanEDP
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function subsection(): HasOne
-    {
-        return $this->hasOne(QuestionSubSection::class, 'questionSubSectionID', 'question_sub_sections.id');
+        return $this->hasMany(NilaiEDP::class, 'id', 'rekapanEDPID');
     }
 }

@@ -16,7 +16,7 @@ class DashboardController extends Controller
      */
     public function render()
     {
-        $answerPackage = AnswerPackage::where('penilaiID', '=', Auth::user()->id)->get();
+        $answerPackage = AnswerPackage::where('penilaiID', '=', Auth::user()->id)->where('isDone', '=', 0)->get();
 
         return view('pages.user.dashboard', compact('answerPackage'));
     }

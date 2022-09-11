@@ -125,5 +125,23 @@ class AccountSeeder extends Seeder
             'kelasID' => 2,
             'mataPelajaranID' => 1,
         ]);
+
+        User::create([
+            'name' => 'Adrian Nathanael',
+            'email' => 'guru2@guru.com',
+            'password' => Hash::make('guru123'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        UserDetail::create([
+            'userID' => 3,
+            'NIY' => '3212312',
+            'posisiID' => 3,
+            'golonganID' => 2,
+            'unitID' => 2,
+            'kelasID' => 3,
+            'mataPelajaranID' => 2,
+        ]);
     }
 }

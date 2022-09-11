@@ -13,6 +13,17 @@
     <div class="overflow-x-auto relative sm:rounded-lg mt-3 w-full">
         <table class="w-full font-light text-base text-left text-[#454B54] bg-white rounded-lg">
             <tbody>
+                <tr>
+                    <td colspan="3" class="py-4 px-6 font-bold text-center">
+                        KOMPETENSI/SUB KOMPETENSI/INDIKATOR
+                    </td>
+                    <td colspan="3" class="py-4 px-6 font-bold text-center">
+                        Rencana PKB
+                    </td>
+                    <td class="py-4 px-6 font-bold">
+                        Strategi PKB
+                    </td>
+                </tr>
                 @foreach ($section as $sections)
                     <span class="hidden">{{ $average = 0 }}</span>
                     <tr class="hover:bg-[#D5E6FB] hover:text-[#0060FF] transition-all ease-in-out duration-500">
@@ -22,40 +33,33 @@
                         <td colspan="3" class="py-4 px-6 font-bold">
                             {{ $sections->name }}
                         </td>
-                        <td class="py-4 px-6 font-bold">
-                            Score
-                        </td>
                     </tr>
-                    <span class="hidden">{{ $i = 0; }}</span>
-                    @foreach ($rekapan as $rekapans)
-                        @if($rekapans->questionSectionID == $sections->id)
+                    @foreach ($answer as $answers)
+                        @if($answers->questionSectionID == $sections->id)
                             <tr class="hover:bg-[#D5E6FB] hover:text-[#0060FF] transition-all ease-in-out duration-500">
                                 <td class="py-4 px-6">
                                 </td>
                                 <td class="py-4 px-6 font-light">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td colspan="2" class="py-4 px-6 font-light">
-                                    {{ $rekapans->name }}
-                                </td>
-                                <td class="py-4 px-6 font-light">
-                                    {{ round($rekapans->average, 2) }}
-                                    <span class="hidden">{{ $average = $average + $rekapans->average }}</span>
-                                </td>
+                                @if( $answers->questionID % 2 == 1)
+                                    <td class="py-4 px-6 font-light">
+                                        {{ $answers->question->question }}
+                                    </td>
+                                @endif
+                                @if( $answers->question->questionType == 'text')
+                                    <td class="py-4 px-6 font-light">
+                                        {{ $answers->answer }}
+                                    </td>
+                                @elseif ( $answers->question->questionType == 'checkbox' )
+                                    <td class="py-4 px-6 font-light">
+                                        {{ $answers->answer }}
+                                    </td>
+                                @endif
                             </tr>
-                            <span class="hidden">{{ $i = $i + 1; }}</span>
                         @endif
                     @endforeach
-                    <tr class="hover:bg-[#D5E6FB] hover:text-[#0060FF] transition-all ease-in-out duration-500">
-                        <td colspan="4" class="py-4 px-6 text-center font-medium">
-                            Rata - rata
-                        </td>
-                        <td class="py-4 px-6 font-bold">
-                            {{ round($average/$i, 2) }}
-                        </td>
-                    </tr>
                 @endforeach
-                
             </tbody>
         </table>
     </div>

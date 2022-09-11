@@ -17,13 +17,8 @@ class CreateRekapanEDPSTable extends Migration
             $table->id();
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('questionSectionID');
-            $table->foreign('questionSectionID')->references('id')->on('question_sections')->onDelete('cascade');
-            $table->unsignedBigInteger('questionSubSectionID');
-            $table->foreign('questionSubSectionID')->references('id')->on('question_sub_sections')->onDelete('cascade');
-            $table->unsignedBigInteger('periodeID');
-            $table->foreign('periodeID')->references('id')->on('periode_lists')->onDelete('cascade');
-            $table->double('average');
+            $table->unsignedBigInteger('paketJawabanID');
+            $table->foreign('paketJawabanID')->references('id')->on('answer_packages')->onDelete('cascade');
             $table->timestamps();
         });
     }

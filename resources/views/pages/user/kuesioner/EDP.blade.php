@@ -12,12 +12,13 @@
             <div class="w-full mt-6 flex flex-col flex-nowrap space-y-[30px]">
                 {{-- Final Form --}}
                 @if( ($subSection->id) == ($upperLimit['subsectionID']) )
-                    <form class="w-full flex flex-col space-y-6" id="kuesioner-form" action="/user/package/kuesioner/final/{{ $title->id }}/{{ $title->section->id }}/{{ $subSection->id + 1}}" method="POST" enctype="multipart/form-data">
+                    <form class="w-full flex flex-col space-y-6" id="kuesioner-form" action="/user/package/kuesioner/final/{{ $subSection->id + 1}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @foreach ($question as $questions)
                             <div class="flex flex-col justify-between bg-white py-[25px] px-[22px] rounded-lg">
                                 <p class="font-medium text-xl">{{ $loop->iteration }}. {{ $questions->question }}</p>
                                 <input type="hidden" name="questionID[]" value="{{ $questions->id }}">
+                                <input type="hidden" name="periodeID" value="{{ $periode }}">
                                 @if ($questions->questionType == 'number')
                                     <input type="number" name="answer[]" class="border-0 border-b-[1px] border-b-[#5E5E5E]/35 outline-none ring-0 focus:outline-none focus:ring-0 py-3 w-1/4" placeholder="{{ $questions->questionType }}" min="{{ $questions->minimumScore }}" max="{{ $questions->maximumScore }}" value="{{ $questions->answer }}" required>
                                 @elseif ($questions->questionType == 'checkbox')
@@ -43,6 +44,7 @@
                             <div class="flex flex-col justify-between bg-white py-[25px] px-[22px] rounded-lg ">
                                 <p class="font-medium text-xl">{{ $loop->iteration }}. {{ $questions->question }}</p>
                                 <input type="hidden" name="questionID[]" value="{{ $questions->id }}">
+                                <input type="hidden" name="periodeID" value="{{ $periode }}">
                                 @if(!$answer->isEmpty())
                                     @foreach($answer as $answers)
                                         @if($answers->questionID == $questions->id)
@@ -88,7 +90,7 @@
         <div>
             <div class="flex flex-row flex-nowrap space-x-[25px]">
                 @if (($subSection->id - 1)  >= ($underLimit['subsectionID']))
-                    <a href="/user/package/kuesioner/{{ $title->id }}/{{ $title->section->id }}/{{ $subSection->id - 1 }}">
+                    <a href="/user/package/kuesioner/{{ $title->id }}/{{ $title->section->id }}/{{ $subSection->id - 1 }}/{{ $periode }}">
                         <button class="py-5 px-7 font-medium text-base text-[#0060FF] text-center bg-white rounded-2xl shadow-[#000000]/25 shadow-md hover:bg-[#0060FF] hover:text-white transition-all duration-500 ease-in-out">Sebelumnya</button>
                     </a>    
                 @else

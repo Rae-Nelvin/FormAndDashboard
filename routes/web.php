@@ -25,11 +25,17 @@ Route::middleware(['isGuru'])->prefix('user/')->name('user.')->group(function ()
     Route::get('/package', function () {
         return view('pages.user.kuesioner.dashboard');
     });
-    Route::get('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'renderKuesionerEDP'])
+    Route::get('/package/kuesioner/check/{titleID}/{sectionID}/{subSectionID}/{periodeId}', [KuesionerController::class, 'checkKuesioner'])
+        ->name('checkKuesioner');
+    Route::get('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}/{periodeId}', [KuesionerController::class, 'renderKuesionerEDP'])
         ->name('renderKuesioner');
     Route::post('/package/kuesioner/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerEDP']);
-    Route::post('/package/kuesioner/final/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerFinalEDP']);
-    Route::get('/rekapanEDP', [KuesionerController::class, 'renderRekapanEDP'])->name('renderRekapanEDP');
+    Route::post('/package/kuesioner/final/{subSectionID}', [KuesionerController::class, 'storeKuesionerFinalEDP']);
+    Route::get('/rekapanEDP/{id}', [KuesionerController::class, 'renderRekapanEDP'])
+        ->name('renderRekapanEDP');
+    Route::post('/package/kuesioner/pkb/{titleID}/{sectionID}/{subSectionID}', [KuesionerController::class, 'storeKuesionerPKB']);
+    Route::get('/rekapanPKB/{id}', [KuesionerController::class, 'renderRekapanPKB'])
+        ->name('renderRekapanPKB');
 });
 
 Route::middleware(['isAdmin'])->prefix('admin/')->name('admin.')->group(function () {
